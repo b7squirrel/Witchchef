@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //어택 동작이 부득이하게 도중에 취소되어 attackboxOff가 실행되지 않았을 경우를 대비
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Pan_Attack"))
         {
             AttackBoxOff();
         }
@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if(attackTimer <= 0f)
                 {
-                    anim.Play("Player_Attack");
+                    anim.Play("Pan_Attack");
                     AudioManager.instance.Play("whoosh_01");
                     attackTimer = attackCoolTime;
                 }

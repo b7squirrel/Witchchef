@@ -178,14 +178,14 @@ public class EnemyProjectile : MonoBehaviour
     void GetIn()
     {
         if(Vector2.Distance(transform.position,
-            PlayerPanAttack.instance.panPoint.position) <= .1f)
+            PlayerPanAttack.instance.transform.position) <= .1f)
         {
             DestroyProjectile();
         }
         else
         {
             Vector2.MoveTowards(transform.position,
-                PlayerPanAttack.instance.panPoint.position, gettingInSpeed);
+                PlayerPanAttack.instance.transform.position, gettingInSpeed);
         }
     }
 

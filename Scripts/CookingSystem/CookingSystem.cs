@@ -42,7 +42,7 @@ public class CookingSystem : MonoBehaviour
         inventory = GetComponent<Inventory>();
         myRecipeRoll = GetComponent<RecipeRoll>();
         myRecipeFlavor = GetComponent<RecipeFlavor>();
-        panPoint = FindObjectOfType<PlayerPanAttack>().GetComponent<PlayerPanAttack>().panPoint;
+        panPoint = FindObjectOfType<PlayerPanAttack>().GetComponent<PlayerPanAttack>().transform;
         rollLayer = FindObjectOfType<PlayerPanAttack>().GetComponent<PlayerPanAttack>().rollLayers;
 
         _rollSlot_animator = roll_Slot.GetComponent<Animator>();

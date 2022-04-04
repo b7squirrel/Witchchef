@@ -6,13 +6,12 @@ using UnityEngine;
 public class PlayerPanAttack : MonoBehaviour
 {
     public static PlayerPanAttack instance;
-    public Animator anim;
+    public Animator panAnim;
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayers;
     public LayerMask rollLayers;
 
-    public Transform panPoint;
     public Transform hittingRollPoint;
 
     private PlayerCaptureBox playerCaptureBox;
@@ -36,7 +35,7 @@ public class PlayerPanAttack : MonoBehaviour
     }
     void Start()
     {
-        anim = GetComponent<Animator>();
+        panAnim = GetComponent<Animator>();
         playerCaptureBox = GetComponentInChildren<PlayerCaptureBox>();
     }
     void Update()
@@ -52,7 +51,7 @@ public class PlayerPanAttack : MonoBehaviour
             {
                 return;
             }
-            anim.Play("Player_Capture");
+            panAnim.Play("Pan_Capture");
             captureTimer = captureDuration;
         }
 
@@ -60,7 +59,7 @@ public class PlayerPanAttack : MonoBehaviour
         {
             if (inventory.numberOfRolls > 0)
             {
-                anim.Play("Player_HitRoll");
+                panAnim.Play("Pan_HitRoll");
             }
         }
     }
@@ -92,11 +91,11 @@ public class PlayerPanAttack : MonoBehaviour
     void Panning()
     {
         // Capture의 마지막 프레임에서 애니메이션 이벤트로 실행
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Player_Panning"))
+        if (!panAnim.GetCurrentAnimatorStateInfo(0).IsName("Pan_Pan"))
         {
             if (inventory.InputSlots[0].GetRoll().rollSo.rollType != Roll.rollType.none)
             {
-                anim.Play("Player_Panning");
+                panAnim.Play("Pan_Pan");
             }
         }
     }
@@ -106,10 +105,10 @@ public class PlayerPanAttack : MonoBehaviour
         Roll.rollType _roll = inventory.InputSlots[0].GetRoll().rollSo.rollType;
         int _rollNumber = inventory.numberOfRolls;
 
-        Vector3 _hitPoint = panPoint.position + new Vector3(PlayerController.instance.staticDirection * 2.2f, 0);
+        Vector3 _hitPoint = transform.position + new Vector3(PlayerController.instance.staticDirection * 2.2f, 0);
 
         // Roll, Flavor 생성
-        GameObject _rollPrefab = Instantiate(CookingSystem.instance.outputRoll.rollPrefab[inventory.numberOfRolls - 1], _hitPoint, panPoint.rotation);
+        GameObject _rollPrefab = Instantiate(CookingSystem.instance.outputRoll.rollPrefab[inventory.numberOfRolls - 1], _hitPoint, transform.rotation);
         _rollPrefab.GetComponent<EnemyRolling>().numberOfRolls = inventory.numberOfRolls;
         _rollPrefab.GetComponent<EnemyRolling>().theFlavorSo = CookingSystem.instance.outputFlavor; // flavor액션을 가져오기 위해
         
@@ -117,7 +116,7 @@ public class PlayerPanAttack : MonoBehaviour
         {
             _rollPrefab.GetComponent<EnemyRolling>().isFlavored = true;
 
-            GameObject _flavorPrefab = Instantiate(CookingSystem.instance.outputFlavor.flavorParticle, _hitPoint, panPoint.rotation);
+            GameObject _flavorPrefab = Instantiate(CookingSystem.instance.outputFlavor.flavorParticle, _hitPoint, transform.rotation);
             _flavorPrefab.transform.parent = _rollPrefab.transform;
             _flavorPrefab.GetComponent<ParticleController>().numberOfRolls = inventory.numberOfRolls;
             _flavorPrefab.transform.localEulerAngles = new Vector3(-90, 0, 0);
