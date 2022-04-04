@@ -93,10 +93,22 @@ public class PlayerPanAttack : MonoBehaviour
         // Capture의 마지막 프레임에서 애니메이션 이벤트로 실행
         if (!panAnim.GetCurrentAnimatorStateInfo(0).IsName("Pan_Pan"))
         {
-            if (inventory.InputSlots[0].GetRoll().rollSo.rollType != Roll.rollType.none)
+            if (inventory.numberOfRolls == 1)
             {
                 panAnim.Play("Pan_Pan");
             }
+            else if (inventory.numberOfRolls == 2)
+            {
+                panAnim.Play("Pan_Pan2");
+            }
+            else if (inventory.numberOfRolls == 3)
+            {
+                panAnim.Play("Pan_Pan3");
+            }
+            //if (inventory.InputSlots[0].GetRoll().rollSo.rollType != Roll.rollType.none)
+            //{
+            //    panAnim.Play("Pan_Pan");
+            //}
         }
     }
     void HitRoll()

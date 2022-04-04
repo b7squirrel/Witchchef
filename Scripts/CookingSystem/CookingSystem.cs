@@ -98,11 +98,13 @@ public class CookingSystem : MonoBehaviour
                 _color.a = 1;
                 _rollSprite.color = _color;
 
-                // 매번 0,0 으로 초기화 시켜서 무한히 더해지지 않게 함
+                // 애니메이터 오버라이드
                 _rollSlot_animator.runtimeAnimatorController = outputRoll.roll_OverrideController[inventory.numberOfRolls - 1];
-                float _offsetY = .45f * (inventory.numberOfRolls - 1);
-                roll_Slot.transform.localPosition = new Vector2(0, 0);
-                roll_Slot.transform.localPosition = new Vector2(0,  _offsetY);
+
+                // 롤이 커질수록 롤의 위치를 _offsetY만큼 올려준다. 매번 0,0 으로 초기화 시켜서 무한히 더해지지 않게 함
+                //float _offsetY = .45f * (inventory.numberOfRolls - 1);
+                //roll_Slot.transform.localPosition = new Vector2(0, 0);
+                //roll_Slot.transform.localPosition = new Vector2(0,  _offsetY);
 
                 return;
             }
