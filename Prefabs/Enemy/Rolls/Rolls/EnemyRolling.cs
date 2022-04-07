@@ -109,7 +109,7 @@ public class EnemyRolling : MonoBehaviour
     {
         currentState = rollingState.shooting;
         beingHit = false;
-        GameObject clone = Instantiate(hitEffect, hitEffectPoint.position, hitEffectPoint.rotation);
+        //GameObject clone = Instantiate(hitEffect, hitEffectPoint.position, hitEffectPoint.rotation);
         //시간 멈추고 카메라쉐이크
         GameManager.instance.StartCameraShake(8, .8f);
         GameManager.instance.TimeStop(.1f);

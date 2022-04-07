@@ -10,6 +10,7 @@ public class GoblinBolt : MonoBehaviour
     public Transform groundCheckPoint;
     public LayerMask groundLayer;
     public Transform wallDetectingPoint;
+    public GameObject attackBox; // 스턴 상태일 때 플레이어가 공격받지 않게 끄기
     public float knockBackForce;
     public float knockBackTime;
     

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    private Transform target;
     public float moveSpeed;
     private Vector2 moveDirection;
     private Rigidbody2D theRB;
@@ -29,9 +28,6 @@ public class EnemyProjectile : MonoBehaviour
     private GameObject _debris;
 
     private bool hit;
-    public GameObject cube;
-    // projectile이 목표물과 거리가 멀거나 가까워도 항상 목표물에 도달하도록 값을 조절해 주는 상수
-    public float distantConstant;
 
     void Start()
     {
@@ -85,9 +81,9 @@ public class EnemyProjectile : MonoBehaviour
                         hit = true;
                     }
                     isFlying = true;
+                    AudioManager.instance.Play("pan_hit_05");
                     theRB.gravityScale = 1f;
-                    //Deflection();
-                    Temp();
+                    Deflection();
 
                     GameManager.instance.StartCameraShake(6, 1.3f);
                     GameManager.instance.TimeStop(.08f);
@@ -96,11 +92,7 @@ public class EnemyProjectile : MonoBehaviour
             else
             {
                 // 패링이 된 상태에서 날아가는 중
-
                 float _distance = Mathf.Abs(initialPoint.x - transform.position.x);
-
-
-                theRB.gravityScale += .08f / (_distance * distantConstant);
             }
         }
     }
@@ -141,29 +133,12 @@ public class EnemyProjectile : MonoBehaviour
     {
         this.gameObject.tag = "ProjectileDeflected";
         
+
         Transform effectPoint = transform;
         effectPoint.position += new Vector3(2f, .7f, 0f);
         effectPoint.eulerAngles = new Vector3(transform.rotation.x, PlayerController.instance.transform.rotation.y, -10f);
 
         theRB.velocity = CalculateVelecity(initialPoint, (Vector2)contactPoint, homingTime);
-    }
-
-    void Temp()
-    {
-        this.gameObject.tag = "ProjectileDeflected";
-        float tempDirection = transform.position.x - initialPoint.x;
-        int direc = 0;
-
-        if(tempDirection > 0)
-        {
-            direc = -1;
-        }
-        else if(tempDirection < 0)
-        {
-            direc = 1;
-        }
-
-        theRB.velocity = new Vector2(direc * moveSpeed, 20f);
     }
 
     void GetFlavored()

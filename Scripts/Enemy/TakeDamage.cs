@@ -20,7 +20,7 @@ public class TakeDamage : MonoBehaviour
     [Header("White Flash")]
     public Material whiteMat;
     private Material initialMat;
-    public GameObject mSprite;
+    public GameObject mSprite;  // 자신의 스프라이트를 끌어다 넣기
     private SpriteRenderer theSR;
     public float blinkingDuration;
 

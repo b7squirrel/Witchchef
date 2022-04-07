@@ -104,7 +104,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 661229349
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -5081658407826670358, guid: cde9fbf9658924847b4a0d5f3c574aa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -198,8 +198,9 @@ MonoBehaviour:
   followingPanSpeed: 30
   beingHit: 0
   initForce_x: 25
-  initForce_y: 10
+  initForce_y: 4
   hitEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}
   hitEffectPoint: {fileID: 8031523339183027474}
   numberOfRolls: 2
-  explosion: {fileID: 6970464861885622262, guid: 6ae18ccdb20696f4b8c2ff179d866d14, type: 3}
+  isFlavored: 0
+  theFlavorSo: {fileID: 0}

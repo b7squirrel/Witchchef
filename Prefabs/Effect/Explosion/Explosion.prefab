@@ -90,7 +90,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  explosionEffect: {fileID: 2214637327719431496, guid: cde83cf609d66eb4d81ae5adde08a52a, type: 3}
+  explosionEffect: {fileID: 2774906558602702128, guid: f46134b4e847f6c428dc65782b70ae0e, type: 3}
   boxCol: {fileID: 0}
   debris: {fileID: 187122873919782896, guid: 64c18b34fb810cc42b34bbadf415137b, type: 3}
   debrisDirt: {fileID: 2150629472456039725, guid: f8c2c940b4f2eaa4da644192fcd88134, type: 3}

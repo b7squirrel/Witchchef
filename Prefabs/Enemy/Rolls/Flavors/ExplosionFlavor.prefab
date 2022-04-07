@@ -77,9 +77,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   explosionEffect:
-  - {fileID: 2774906558602702128, guid: f46134b4e847f6c428dc65782b70ae0e, type: 3}
-  - {fileID: 2214637327719431496, guid: cde83cf609d66eb4d81ae5adde08a52a, type: 3}
-  - {fileID: 8856486009589712465, guid: d13430e0f2e970a44ac2fd9ad4b54cc4, type: 3}
+  - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
+  - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
+  - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
   scale_1: 2
   scale_2: 0.5
   scale_3: 0.5
@@ -88,5 +88,5 @@ MonoBehaviour:
   debrisParticleEffect: {fileID: 5738631094860149647, guid: c3bb8c08a19e20e4d9b08d1b0bd94054, type: 3}
   timeToDelay: 0.1
   debugDot: {fileID: 245781571268478776, guid: 8ba0080dd4f69154e895caf9efdb1498, type: 3}
-  dotAlpha: 0
-  numberOfFlavors: 0
+  dotAlpha: 0.5
+  numberOfRolls: 0

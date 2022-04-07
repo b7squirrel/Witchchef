@@ -117,7 +117,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 28
-        width: 52
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,9 +136,9 @@ TextureImporter:
       name: Player_Jump_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 32
         y: 28
-        width: 52
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,9 +157,9 @@ TextureImporter:
       name: Player_Jump_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 64
         y: 28
-        width: 52
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -180,7 +180,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 52
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,9 +199,9 @@ TextureImporter:
       name: Player_Jump_4
       rect:
         serializedVersion: 2
-        x: 52
+        x: 32
         y: 0
-        width: 52
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
