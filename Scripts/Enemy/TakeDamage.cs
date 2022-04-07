@@ -12,6 +12,7 @@ public class TakeDamage : MonoBehaviour
     public bool isRolling;
 
     public GameObject dieEffect;
+    public GameObject dieBones;
 
     [Header("Rolling")]
     public bool isCaptured;
@@ -60,6 +61,12 @@ public class TakeDamage : MonoBehaviour
             Die();
         }
 
+        if (collision.CompareTag("Explosion"))
+        {
+            AudioManager.instance.Play("Goul_Die_01");
+            Die();
+        }
+
         if (collision.CompareTag("RollFlavored"))
         {
             Die();
@@ -86,6 +93,7 @@ public class TakeDamage : MonoBehaviour
         
     public void Die()
     {
+        Instantiate(dieBones, transform.position, transform.rotation);
         Instantiate(dieEffect, transform.position, transform.rotation);
         AudioManager.instance.Play("Goul_Die_01");
         AudioManager.instance.Stop("Energy_01");

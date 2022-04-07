@@ -130,8 +130,10 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 1
   isStunned: 0
+  knockBack: 0
   isRolling: 0
   dieEffect: {fileID: 6987084327100221053, guid: 036f43595c5bb0743a94c6b3227bc1f5, type: 3}
+  dieBones: {fileID: 4603347380383349277, guid: b7da27b8c33bd934587a2e98bafde3a1, type: 3}
   isCaptured: 0
   rollSo: {fileID: 11400000, guid: 3b4a2007186b53344ab578941dcd2845, type: 2}
   whiteMat: {fileID: 2100000, guid: 8ec93e96670acbe42ad1c1e3ea6e9768, type: 2}
@@ -206,7 +208,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 661229349
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5436736079211173424, guid: 0192487d12000aa489f2fafde06605d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -495,6 +497,7 @@ MonoBehaviour:
   action:
     serializedVersion: 2
     m_Bits: 8
+  isFacingLeft: 0
   moveSpeed: 3
   timeToStopFollowing: 5
   isParried: 0

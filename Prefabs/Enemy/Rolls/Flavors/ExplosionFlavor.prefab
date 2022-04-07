@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2245542683496020161}
   m_Layer: 0
   m_Name: ExplosionFlavor
-  m_TagString: AttackBoxPlayer
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,9 +77,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   explosionEffect:
+  - {fileID: 5773635911598489654, guid: 939c758f0881ded40bf4cef30a4650d2, type: 3}
   - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
-  - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
-  - {fileID: 8871838030137777785, guid: 246c6877b6ff9604bbfc1467a78a4891, type: 3}
+  - {fileID: 8856486009589712465, guid: d13430e0f2e970a44ac2fd9ad4b54cc4, type: 3}
   scale_1: 2
   scale_2: 0.5
   scale_3: 0.5
@@ -88,5 +88,5 @@ MonoBehaviour:
   debrisParticleEffect: {fileID: 5738631094860149647, guid: c3bb8c08a19e20e4d9b08d1b0bd94054, type: 3}
   timeToDelay: 0.1
   debugDot: {fileID: 245781571268478776, guid: 8ba0080dd4f69154e895caf9efdb1498, type: 3}
-  dotAlpha: 0.5
+  dotAlpha: 0
   numberOfRolls: 0

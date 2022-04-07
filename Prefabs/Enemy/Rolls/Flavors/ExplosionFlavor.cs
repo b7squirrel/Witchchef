@@ -103,7 +103,7 @@ public class ExplosionFlavor : MonoBehaviour
                 Vector3 _cellPosition =
                     new Vector3(_center.x + i, _center.y + j, 0);
 
-                Instantiate(debugDot, _cellPosition, Quaternion.identity);
+                //Instantiate(debugDot, _cellPosition, Quaternion.identity);
 
                 Collider2D _hitground = Physics2D.OverlapCircle(_cellPosition, .02f, groundLayer);
                 if (_hitground != null)

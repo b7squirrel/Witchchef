@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7444050164934169137, guid: 2f40f8d6322dd6e409d472d6244b1b9b, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7444050164934169137, guid: 2f40f8d6322dd6e409d472d6244b1b9b, type: 3}
       propertyPath: m_SortingLayerID
@@ -1472,8 +1472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 512
+  m_RefResolutionY: 288
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 1
@@ -102043,25 +102043,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 656048493}
     m_Modifications:
-    - target: {fileID: 6493158245389905574, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493158245600938853, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493158245600938853, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 661229349
-      objectReference: {fileID: 0}
     - target: {fileID: 6493158246380748803, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
       propertyPath: m_Name
       value: Goul
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493158246380748803, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6493158246380748831, guid: 3f9f37ebfa06c17438af2239b2d80890, type: 3}
       propertyPath: m_RootOrder
