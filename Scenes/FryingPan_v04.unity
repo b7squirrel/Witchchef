@@ -1472,8 +1472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 512
-  m_RefResolutionY: 288
+  m_RefResolutionX: 384
+  m_RefResolutionY: 216
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 1
@@ -2037,10 +2037,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hittingRollPoint: {fileID: 1218701383}
+  captureBox: {fileID: 2029100655}
   captureDuration: 0.2
   inventory: {fileID: 536912791}
   rollso: {fileID: 11400000, guid: 7786f313465a50441a19c196721aacdb, type: 2}
   flavorSo: {fileID: 11400000, guid: 398028c4e1b6d6c4694034f891f8ba31, type: 2}
+  HitRollEffect: {fileID: 4988539520100251607, guid: 1aaf8f411f33b814db79f48fc66abbe5, type: 3}
 --- !u!114 &619753140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7723,7 +7725,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: pan_hit_05
     clip: {fileID: 8300000, guid: de7334b2addd37a4a84c317b1b09331b, type: 3}
-    volume: 0.64
+    volume: 0.41
     pitch: 0.66
     loop: 0
     source: {fileID: 0}
@@ -7773,6 +7775,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4c6f23544f900dc4f82115b3c0daac19, type: 3}
     volume: 0.58
     pitch: 1.82
+    loop: 0
+    source: {fileID: 0}
+  - name: FIre_Parried
+    clip: {fileID: 8300000, guid: 0960fe3c220c5ae40994686262074d98, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion_Debris_01
+    clip: {fileID: 8300000, guid: 93d62bf3a4a61e74099dc2703eb78bf0, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1528397105
@@ -101460,7 +101474,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101471,7 +101485,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.39, y: 0.67}
+  m_Size: {x: 2.39, y: 1.44}
   m_EdgeRadius: 0
 --- !u!1 &2047531064
 GameObject:

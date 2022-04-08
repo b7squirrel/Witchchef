@@ -113,8 +113,8 @@ public class ExplosionFlavor : MonoBehaviour
                 }
             }
         }
-        
 
+        AudioManager.instance.Play("Explosion_Debris_01");
         boxCol_1.offset = Vector2.zero;
         boxCol_1.size = boxSizeCore;
         boxCol_1.isTrigger = true;

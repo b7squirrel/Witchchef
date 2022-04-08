@@ -12,7 +12,8 @@ public class PlayerPanAttack : MonoBehaviour
     public LayerMask enemyLayers;
     public LayerMask rollLayers;
 
-    public Transform hittingRollPoint;
+    public Transform hittingRollPoint;   // 이건 어디다 쓰는걸까?
+    public Transform captureBox;  // 여기서 HItRoll Effect를 발생시키기
 
     private PlayerCaptureBox playerCaptureBox;
 
@@ -22,6 +23,8 @@ public class PlayerPanAttack : MonoBehaviour
     public Inventory inventory;
     public RollSO rollso;
     public FlavorSo flavorSo;
+
+    public GameObject HitRollEffect;
 
     public float CaptureTimer
     {
@@ -134,6 +137,9 @@ public class PlayerPanAttack : MonoBehaviour
             _flavorPrefab.transform.localEulerAngles = new Vector3(-90, 0, 0);
         }
         _rollPrefab.GetComponent<EnemyRolling>().BeingHit();
+
+        Instantiate(HitRollEffect, captureBox.position, Quaternion.identity);
+
 
         AudioManager.instance.Play("fire_explosion_01");
         AudioManager.instance.Play("pan_hit_03");

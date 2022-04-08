@@ -57,7 +57,7 @@ public class TakeDamage : MonoBehaviour
         {
             AudioManager.instance.Play("Goul_Die_01");
             GameManager.instance.StartCameraShake(4, .5f);
-            GameManager.instance.TimeStop(.02f);
+            GameManager.instance.TimeStop(.2f);
             Die();
         }
 

@@ -21,6 +21,8 @@ public class EnemyProjectile : MonoBehaviour
 
     public FlavorSo flavorSo;
 
+    public GameObject deflectionHitEffect;
+
     public GameObject sparkEffect;
     public GameObject smokeRed;
     public GameObject debris;
@@ -82,11 +84,13 @@ public class EnemyProjectile : MonoBehaviour
                     }
                     isFlying = true;
                     AudioManager.instance.Play("pan_hit_05");
+                    AudioManager.instance.Play("FIre_Parried");
                     theRB.gravityScale = 1f;
+                    Instantiate(deflectionHitEffect, transform.position, Quaternion.identity);
                     Deflection();
 
                     GameManager.instance.StartCameraShake(6, 1.3f);
-                    GameManager.instance.TimeStop(.08f);
+                    GameManager.instance.TimeStop(.2f);
                 }
             }
             else
@@ -132,13 +136,15 @@ public class EnemyProjectile : MonoBehaviour
     void Deflection()
     {
         this.gameObject.tag = "ProjectileDeflected";
-        
 
         Transform effectPoint = transform;
         effectPoint.position += new Vector3(2f, .7f, 0f);
         effectPoint.eulerAngles = new Vector3(transform.rotation.x, PlayerController.instance.transform.rotation.y, -10f);
 
+
+
         theRB.velocity = CalculateVelecity(initialPoint, (Vector2)contactPoint, homingTime);
+
     }
 
     void GetFlavored()
