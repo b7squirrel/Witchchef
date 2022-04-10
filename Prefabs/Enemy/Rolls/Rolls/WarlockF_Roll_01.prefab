@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 661229349
-  m_SortingLayer: 2
+  m_SortingLayerID: 1856425771
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7776301901480157975, guid: ba8a2f3ba3b796348803a6cf0bebfe64, type: 3}
   m_Color: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
@@ -166,14 +166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followingPanSpeed: 30
-  isRolling: 0
   beingHit: 0
   initForce_x: 25
   initForce_y: 10
   hitEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}
   hitEffectPoint: {fileID: 3410760840224446877}
   numberOfRolls: 1
-  explosion: {fileID: 6970464861885622262, guid: 6ae18ccdb20696f4b8c2ff179d866d14, type: 3}
+  isFlavored: 0
+  theFlavorSo: {fileID: 0}
 --- !u!1 &8043463737213346029
 GameObject:
   m_ObjectHideFlags: 0
