@@ -1471,7 +1471,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
@@ -2109,7 +2109,7 @@ MonoBehaviour:
   inventory: {fileID: 536912791}
   rollso: {fileID: 11400000, guid: 7786f313465a50441a19c196721aacdb, type: 2}
   flavorSo: {fileID: 11400000, guid: 398028c4e1b6d6c4694034f891f8ba31, type: 2}
-  HitRollEffect: {fileID: 4988539520100251607, guid: 1aaf8f411f33b814db79f48fc66abbe5, type: 3}
+  HitRollEffect: {fileID: 5090427162195939564, guid: cfb19a9bda3e8bd40a92995ab5a6faac, type: 3}
 --- !u!114 &619753140
 MonoBehaviour:
   m_ObjectHideFlags: 0

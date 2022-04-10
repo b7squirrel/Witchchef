@@ -23,14 +23,11 @@ public class EnemyProjectile : MonoBehaviour
     public float gettingInSpeed; // 팬 위로 올라가는 속도
 
     public float deflectionDelayTime;
-    float deflectionCounter;
     bool isDelayed;
 
     public FlavorSo flavorSo;
 
     public GameObject deflectionHitEffect;
-
-    public GameObject sparkEffect;
     public GameObject smokeRed;
     public GameObject debris;
     private GameObject _smoke;
