@@ -148,9 +148,10 @@ MonoBehaviour:
   moveSpeed: 20
   contactPoint: {x: 0, y: 0}
   isParried: 0
-  homingTime: 0.4
+  homingTime: 0.3
   isCaptured: 0
   gettingInSpeed: 5
+  deflectionDelayTime: 0.05
   flavorSo: {fileID: 11400000, guid: 4a7efb159676c1e44a463d9887e4c5d9, type: 2}
   deflectionHitEffect: {fileID: 4988539520100251607, guid: 1aaf8f411f33b814db79f48fc66abbe5, type: 3}
   sparkEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}

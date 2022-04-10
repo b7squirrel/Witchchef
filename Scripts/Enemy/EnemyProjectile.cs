@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player Attack Box에서 isParried 와 contactPoint를 제어함
+/// </summary>
 public class EnemyProjectile : MonoBehaviour
 {
     public float moveSpeed;
@@ -18,6 +21,10 @@ public class EnemyProjectile : MonoBehaviour
     public bool isCaptured; // 캡쳐되었음을 전달 받고 이 스크립트에서 getRolled를 구현
     private bool isGettingIn; // 캡쳐되어서 후라이팬 안으로 들어가는 단계
     public float gettingInSpeed; // 팬 위로 올라가는 속도
+
+    public float deflectionDelayTime;
+    float deflectionCounter;
+    bool isDelayed;
 
     public FlavorSo flavorSo;
 
@@ -44,6 +51,12 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
+
+        if (isDelayed)
+        {
+            theRB.velocity = new Vector2(0, 0);
+        }
+
         _smoke.transform.position = Vector2.MoveTowards(_smoke.transform.position,
                 transform.position, 5f);
         _debris.transform.position = Vector2.MoveTowards(_debris.transform.position,
@@ -87,7 +100,8 @@ public class EnemyProjectile : MonoBehaviour
                     AudioManager.instance.Play("FIre_Parried");
                     theRB.gravityScale = 1f;
                     Instantiate(deflectionHitEffect, transform.position, Quaternion.identity);
-                    Deflection();
+                    StartCoroutine(DelayDeflection());
+                    
 
                     GameManager.instance.StartCameraShake(6, 1.3f);
                     GameManager.instance.TimeStop(.2f);
@@ -100,7 +114,6 @@ public class EnemyProjectile : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("HurtBoxPlayer"))
@@ -119,6 +132,23 @@ public class EnemyProjectile : MonoBehaviour
             }
         }
     }
+    IEnumerator DelayDeflection()
+    {
+        isDelayed = true;
+        this.gameObject.tag = "ProjectileDeflected";
+        yield return new WaitForSeconds(deflectionDelayTime);
+        isDelayed = false;
+        Deflection();
+    }
+    void Deflection()
+    {
+        Transform effectPoint = transform;
+        effectPoint.position += new Vector3(2f, .7f, 0f);
+        effectPoint.eulerAngles = new Vector3(transform.rotation.x, PlayerController.instance.transform.rotation.y, -10f);
+
+        theRB.velocity = CalculateVelecity(initialPoint, (Vector2)contactPoint, homingTime);
+
+    }
     Vector2 CalculateVelecity(Vector2 _target, Vector2 _origin, float time)
     {
         Vector2 distance = _target - _origin;
@@ -132,21 +162,6 @@ public class EnemyProjectile : MonoBehaviour
 
         return result;
     }
-
-    void Deflection()
-    {
-        this.gameObject.tag = "ProjectileDeflected";
-
-        Transform effectPoint = transform;
-        effectPoint.position += new Vector3(2f, .7f, 0f);
-        effectPoint.eulerAngles = new Vector3(transform.rotation.x, PlayerController.instance.transform.rotation.y, -10f);
-
-
-
-        theRB.velocity = CalculateVelecity(initialPoint, (Vector2)contactPoint, homingTime);
-
-    }
-
     void GetFlavored()
     {
         AudioManager.instance.Play("GetRolled_01");
@@ -155,7 +170,6 @@ public class EnemyProjectile : MonoBehaviour
         isGettingIn = true;
         gameObject.tag = "Player";
     }
-    
     void GetIn()
     {
         if(Vector2.Distance(transform.position,
