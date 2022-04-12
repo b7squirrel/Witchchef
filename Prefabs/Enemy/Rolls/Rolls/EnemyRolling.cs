@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyRolling : MonoBehaviour
 {
-    private enum rollingState { shooting, flying, dropped };
+    private enum rollingState { shooting, flying };
     private rollingState currentState;
 
     public float followingPanSpeed;
@@ -47,33 +47,16 @@ public class EnemyRolling : MonoBehaviour
     {
         SetDirection();
 
-        if(PlayerHealthController.instance.isDead)
-        {
-            currentState = rollingState.dropped;
-        }
-
         switch (currentState)
         {
             case rollingState.shooting:
 
-                if (theRB.gravityScale != 1)
-                {
-                    theRB.gravityScale = 3;
-                }
+                theRB.gravityScale = 3 * (numberOfRolls / 1.3f);
                 theRB.velocity = new Vector2(direction * initForce_x, initForce_y);
                 currentState = rollingState.flying;
                 break;
 
             case rollingState.flying:
-
-                theRB.gravityScale += .02f;
-
-                break;
-
-            case rollingState.dropped:
-                DestroyPrefab();
-                //transform.parent = null;
-                //theRB.gravityScale = 5;
                 break;
         }
     }
