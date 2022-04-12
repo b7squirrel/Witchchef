@@ -51,8 +51,8 @@ public class EnemyRolling : MonoBehaviour
         {
             case rollingState.shooting:
 
-                theRB.gravityScale = 3 * (numberOfRolls / 1.3f);
-                theRB.velocity = new Vector2(direction * initForce_x, initForce_y);
+                theRB.gravityScale = 3 * (numberOfRolls * 2f);
+                theRB.velocity = new Vector2(direction * initForce_x, initForce_y * (numberOfRolls * 1.5f));
                 currentState = rollingState.flying;
                 break;
 
