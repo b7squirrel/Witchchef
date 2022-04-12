@@ -94,7 +94,7 @@ public class CookingSystem : MonoBehaviour
 
                 // 후라이팬의 Roll Slot의 Sprite를 output sprite로 교체
                 // roll아웃풋이 none이 아니라면 outputSO에서 sprite를 꺼내오고 ROll Slot의 알파값은 1로
-                _rollSprite.sprite = outputRoll.rollSprite[inventory.numberOfRolls - 1];
+                //_rollSprite.sprite = outputRoll.rollSprite[inventory.numberOfRolls - 1];
                 _color.a = 1;
                 _rollSprite.color = _color;
 

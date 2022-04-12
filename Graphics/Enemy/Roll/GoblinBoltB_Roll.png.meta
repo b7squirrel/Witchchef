@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: ba8a2f3ba3b796348803a6cf0bebfe64
+guid: 195b59728448fc146b45e6f3ed4380b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7776301901480157975
-    second: Goul_Fighter_Rolling_0
+      213: 7228554400339734142
+    second: GoblinBoltB_Roll_0
   - first:
-      213: -3600456032655560047
-    second: Goul_Fighter_Rolling_1
+      213: 7869538842569517365
+    second: GoblinBoltB_Roll_1
   - first:
-      213: -5697028100136570010
-    second: Goul_Fighter_Rolling_2
+      213: 9105002181797838264
+    second: GoblinBoltB_Roll_2
   - first:
-      213: 6306685272779620682
-    second: Goul_Fighter_Rolling_3
+      213: 33116418165203122
+    second: GoblinBoltB_Roll_3
+  - first:
+      213: -4052040374577250297
+    second: GoblinBoltB_Roll_4
+  - first:
+      213: 7070801019013473481
+    second: GoblinBoltB_Roll_5
+  - first:
+      213: 1533863709100145471
+    second: GoblinBoltB_Roll_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,8 +54,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -77,7 +86,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -89,7 +98,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -103,12 +112,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goul_Fighter_Rolling_0
+      name: GoblinBoltB_Roll_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
-        width: 18
+        x: 0
+        y: 32
+        width: 24
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -117,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7136be7f069faeb60800000000000000
-      internalID: 7776301901480157975
+      spriteID: e7e26d7bdebf05460800000000000000
+      internalID: 7228554400339734142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Rolling_1
+      name: GoblinBoltB_Roll_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 2
-        width: 19
-        height: 18
+        x: 24
+        y: 32
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1923728705c980ec0800000000000000
-      internalID: -3600456032655560047
+      spriteID: 539ae79f1e7363d60800000000000000
+      internalID: 7869538842569517365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Rolling_2
+      name: GoblinBoltB_Roll_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 3
-        width: 19
-        height: 18
+        x: 48
+        y: 32
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 663f0f7802710f0b0800000000000000
-      internalID: -5697028100136570010
+      spriteID: 8bd77357e377b5e70800000000000000
+      internalID: 9105002181797838264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Rolling_3
+      name: GoblinBoltB_Roll_3
       rect:
         serializedVersion: 2
-        x: 78
-        y: 3
-        width: 17
-        height: 20
+        x: 0
+        y: 16
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +189,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a41873267d8d58750800000000000000
-      internalID: 6306685272779620682
+      spriteID: 2b068f4f437a57000800000000000000
+      internalID: 33116418165203122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoltB_Roll_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 16
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70048c97fb244c7c0800000000000000
+      internalID: -4052040374577250297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoltB_Roll_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4a4c76018802260800000000000000
+      internalID: 7070801019013473481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinBoltB_Roll_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bf6caaae0694510800000000000000
+      internalID: 1533863709100145471
       vertices: []
       indices: 
       edges: []

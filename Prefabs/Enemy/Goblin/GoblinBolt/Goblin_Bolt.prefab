@@ -190,7 +190,7 @@ MonoBehaviour:
   dieEffect: {fileID: 6987084327100221053, guid: 036f43595c5bb0743a94c6b3227bc1f5, type: 3}
   dieBones: {fileID: 4603347380383349277, guid: b7da27b8c33bd934587a2e98bafde3a1, type: 3}
   isCaptured: 0
-  rollSo: {fileID: 11400000, guid: 3b4a2007186b53344ab578941dcd2845, type: 2}
+  rollSo: {fileID: 11400000, guid: d7902472d1c4d4e408a3ff5686a0a7d8, type: 2}
   whiteMat: {fileID: 2100000, guid: 8ec93e96670acbe42ad1c1e3ea6e9768, type: 2}
   mSprite: {fileID: 0}
   blinkingDuration: 0.2

@@ -9,6 +9,7 @@ public class Roll
         none,
         goulF,
         warlockF,
+        goblinBolt,
         projectileF
     }
     public RollSO rollSo;
