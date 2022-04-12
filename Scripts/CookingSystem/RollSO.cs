@@ -8,6 +8,5 @@ public class RollSO : ScriptableObject
     public Roll.rollType rollType;
     public Sprite rollSprite_UI;
     public GameObject[] rollPrefab;
-    public Sprite[] rollSprite;
     public AnimatorOverrideController[] roll_OverrideController;
 }

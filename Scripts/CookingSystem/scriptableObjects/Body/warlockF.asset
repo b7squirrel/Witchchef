@@ -18,10 +18,6 @@ MonoBehaviour:
   - {fileID: 1289749946308134405, guid: 666728c79bed8884499e320ca636aa5e, type: 3}
   - {fileID: 950667624872959577, guid: 8f08d0af92617a64ea02814cc30a6175, type: 3}
   - {fileID: 5994110589348398674, guid: 9dd58a1693fe7144d8a048bf25bfa07b, type: 3}
-  rollSprite:
-  - {fileID: 21300000, guid: 80f8352f1ca6abb48bea64e603dc9ade, type: 3}
-  - {fileID: 21300000, guid: 80f8352f1ca6abb48bea64e603dc9ade, type: 3}
-  - {fileID: -8980815111588831792, guid: 64d784657c21b284cabb11eb457903c1, type: 3}
   roll_OverrideController:
   - {fileID: 22100000, guid: c5e9f8f3dc35f9d4f9d231af7c9e5441, type: 2}
   - {fileID: 22100000, guid: d0efd44372997124faa8a6c4360fb109, type: 2}
