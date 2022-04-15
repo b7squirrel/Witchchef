@@ -2653,11 +2653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: verticalSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: horizontalSpeed
-      value: 10
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75da2bc72656474e8884226766e3346, type: 3}
@@ -2967,11 +2967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: verticalSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: horizontalSpeed
-      value: 10
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75da2bc72656474e8884226766e3346, type: 3}
@@ -97809,11 +97809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: verticalSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: horizontalSpeed
-      value: 10
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75da2bc72656474e8884226766e3346, type: 3}
@@ -98950,11 +98950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: verticalSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6617397963678759827, guid: b75da2bc72656474e8884226766e3346, type: 3}
       propertyPath: horizontalSpeed
-      value: 10
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75da2bc72656474e8884226766e3346, type: 3}

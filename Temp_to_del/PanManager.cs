@@ -38,14 +38,18 @@ public class PanManager : MonoBehaviour
 
     public void FlipRoll()
     {
-        for (int i = 0; i < _panSlots.Length; i++)
-        {
-            if (_panSlots[i].isEmpty)
-            {
-                return;
-            }
-            _panSlots[i].Flip();
-        }
+        //for (int i = 0; i < _panSlots.Length; i++)
+        //{
+        //    if (_panSlots[i].isEmpty)
+        //    {
+        //        return;
+        //    }
+        //    _panSlots[i].Flip();
+        //}
+        if (_panSlots[0].IsEmpty())
+            return;
+        _panSlots[0].Flip();
+        
     }
 
     public void SwitchRolls()
