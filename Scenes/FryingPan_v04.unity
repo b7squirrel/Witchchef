@@ -317,6 +317,7 @@ MonoBehaviour:
   rollsOnPan:
     serializedVersion: 2
     m_Bits: 0
+  isEmpty: 1
 --- !u!1001 &84820821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97328,6 +97329,7 @@ MonoBehaviour:
   rollsOnPan:
     serializedVersion: 2
     m_Bits: 0
+  isEmpty: 1
 --- !u!1001 &1689026618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97582,6 +97584,7 @@ MonoBehaviour:
   rollsOnPan:
     serializedVersion: 2
     m_Bits: 0
+  isEmpty: 1
 --- !u!4 &1807286714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8192047951693413148, guid: 5cdff8ef83c803b48af0bf6900501b0c, type: 3}

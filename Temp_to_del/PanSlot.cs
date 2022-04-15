@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PanSlot : MonoBehaviour
 {
-    public LayerMask rollsOnPan;
-    bool isEmpty = true;
+    public bool isEmpty = true;
 
     public bool IsEmpty()
     {
@@ -29,20 +28,29 @@ public class PanSlot : MonoBehaviour
         isEmpty = false;
     }
 
-    public RollObject GetRoll()
+    public Transform GetRoll()
     {
-        RollObject _roll = GetComponentInChildren<RollObject>();
-        return _roll;
+        return GetComponentInChildren<RollObject>().GetRollTransform();
+    }
+
+    public void MoveRoll(PanSlot _targetSlot)
+    {
+        if (!isEmpty)
+        {
+            GetRoll().position = _targetSlot.transform.position;
+            GetRoll().parent = _targetSlot.transform;
+            isEmpty = true;
+        }
     }
 
     public void RemoveRoll()
     {
-        GetRoll().transform.parent = null;
+        GetRoll().parent = null;
         isEmpty = true;
     }
 
     public void Flip()
     {
-        GetRoll().transform.localEulerAngles += new Vector3(0, 0, 45f);
+        GetRoll().localEulerAngles += new Vector3(0, 0, 45f);
     }
 }

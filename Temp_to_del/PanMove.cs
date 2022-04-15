@@ -10,9 +10,10 @@ public class PanMove : MonoBehaviour
         {
             PanManager.instance.FlipRoll();
         }
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //PanManager.instance.SwitchRolls();
+            PanManager.instance.SwitchRolls();
         }
     }
 }
