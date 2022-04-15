@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class RollObject : MonoBehaviour
 {
-    public Transform GetRollTransform()
-    {
-        return this.transform;
-    }
+    
 }

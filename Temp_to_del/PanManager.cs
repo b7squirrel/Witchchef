@@ -38,13 +38,13 @@ public class PanManager : MonoBehaviour
 
     public void FlipRoll()
     {
-        for (int i = _panSlots.Length -1; i > -1; i--)
+        for (int i = 0; i < _panSlots.Length; i++)
         {
-            if (!_panSlots[i].IsEmpty())
+            if (_panSlots[i].isEmpty)
             {
-                _panSlots[i].Flip();
                 return;
             }
+            _panSlots[i].Flip();
         }
     }
 
@@ -60,10 +60,13 @@ public class PanManager : MonoBehaviour
             _panSlots[i].MoveRoll(spareSlot);
             _panSlots[i + 1].MoveRoll(_panSlots[i]);
             spareSlot.MoveRoll(_panSlots[i + 1]);
-            Debug.Log("done");
         }
-
     }
+
+    //public void ClearRoll()
+    //{
+    //    _panSlots[0].GetRoll();
+    //}
 
     public int CountRollNumber()
     {

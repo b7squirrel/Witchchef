@@ -19,6 +19,11 @@ public class PanSlot : MonoBehaviour
 
     }
 
+    public void SetToOccupied()
+    {
+        isEmpty = false;
+    }
+
     public void AddRoll(Transform _prefab)
     {
         _prefab.position = transform.position;
@@ -30,7 +35,7 @@ public class PanSlot : MonoBehaviour
 
     public Transform GetRoll()
     {
-        return GetComponentInChildren<RollObject>().GetRollTransform();
+        return GetComponentInChildren<RollObject>().transform;
     }
 
     public void MoveRoll(PanSlot _targetSlot)
@@ -40,6 +45,7 @@ public class PanSlot : MonoBehaviour
             GetRoll().position = _targetSlot.transform.position;
             GetRoll().parent = _targetSlot.transform;
             isEmpty = true;
+            _targetSlot.SetToOccupied();
         }
     }
 
