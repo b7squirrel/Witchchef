@@ -15,5 +15,12 @@ public class PanMove : MonoBehaviour
         {
             PanManager.instance.SwitchRolls();
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (PanManager.instance.CountRollNumber() == 0)
+                return;
+            PanManager.instance.ClearRoll();
+        }
     }
 }
