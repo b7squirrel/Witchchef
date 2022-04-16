@@ -20,7 +20,12 @@ public class PlayerCaptureBox : MonoBehaviour
                 collision.GetComponent<EnemyProjectile>().isCaptured = true;
             }
         }
+        if (collision.CompareTag("Rolling"))
+        {
+            PanManager.instance.AcquireRoll(collision.transform);
+        }
     }
+
 
     private void OnDrawGizmos()
     {

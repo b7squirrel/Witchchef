@@ -166,18 +166,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isGrounded", true);
-
-            _rollOffsets.SetOffsetsHorizontal(0f);
-            _rollOffsets.SetOffsetsVertical(4f);
-
         }
         else if (Input.GetAxisRaw("Horizontal") != 0 && Mathf.Abs(theRB.velocity.y) <= .1f)  // walk
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isGrounded", true);
-
-            _rollOffsets.SetOffsetsHorizontal(-.2f);
-            _rollOffsets.SetOffsetsVertical(4f);
         }
 
         if (Mathf.Abs(theRB.velocity.y) < 0.1f && isGrounded)  // not falling
@@ -191,8 +184,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", true);
             anim.SetBool("isFalling", false);
             anim.SetBool("isGrounded", false);
-
-            _rollOffsets.SetOffsetsVertical(4f);
         }
         else if (theRB.velocity.y < 0)  // falling
 
@@ -200,13 +191,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isFalling", true);
             anim.SetBool("isJumping", false);
             anim.SetBool("isGrounded", false);
-
-            _rollOffsets.SetOffsetsVertical(6f);
-        }
-
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            _rollOffsets.SetOffsetsHorizontal(-.2f);
         }
     }
 }
