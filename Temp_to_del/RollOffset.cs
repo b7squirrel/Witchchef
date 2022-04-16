@@ -28,7 +28,8 @@ public class RollOffset : MonoBehaviour
 
     private void Update()
     {
-        _slots[0].transform.localPosition = anchorPoint.localPosition + new Vector3(_offset_horizontal, _offset_vertical * .5f, 0f);
+        Vector3 _targetPointForBase = anchorPoint.localPosition + new Vector3(_offset_horizontal, _offset_vertical * .5f, 0f);
+        _slots[0].transform.localPosition = Vector3.Lerp(_slots[0].transform.localPosition, _targetPointForBase, lerpSpeed * Time.deltaTime);
         for (int i = 1; i < _slots.Length; i++)
         {
             Vector3 _targetPoint = _slots[i - 1].transform.localPosition +

@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isGrounded", false);
 
-            _rollOffsets.SetOffsetsVertical(5f);
+            _rollOffsets.SetOffsetsVertical(6f);
         }
 
         if (Input.GetAxisRaw("Horizontal") != 0)
