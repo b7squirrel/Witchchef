@@ -6,6 +6,11 @@ public class PanSlot : MonoBehaviour
 {
     public bool isEmpty = true;
 
+    private void Update()
+    {
+        
+    }
+
     public bool IsEmpty()
     {
         if (isEmpty)
@@ -16,7 +21,6 @@ public class PanSlot : MonoBehaviour
         {
             return false;
         }
-
     }
 
     public void SetToOccupied()

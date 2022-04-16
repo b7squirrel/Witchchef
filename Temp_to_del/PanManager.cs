@@ -49,7 +49,6 @@ public class PanManager : MonoBehaviour
         if (_panSlots[0].IsEmpty())
             return;
         _panSlots[0].Flip();
-        
     }
 
     public void SwitchRolls()
