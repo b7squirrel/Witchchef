@@ -14,6 +14,7 @@ public class TakeDamage : MonoBehaviour
 
     public GameObject dieEffect;
     public GameObject dieBones;
+    public Transform dieEffectPoint;
 
     [Header("Rolling")]
     public bool isCaptured;
@@ -87,12 +88,12 @@ public class TakeDamage : MonoBehaviour
         isCaptured = false;
 
         RollSO _rollSo = RecipeRoll.instance.GetRollSo(myRollType);
-        Instantiate(_rollSo.rollPrefab[0], transform.position, transform.rotation);
+        Instantiate(_rollSo.rollPrefab[0], dieEffectPoint.position, transform.rotation);
         Die();
     }
     public void Die()
     {
-        Instantiate(dieBones, transform.position, transform.rotation);
+        Instantiate(dieBones, dieEffectPoint.position, transform.rotation);
         Instantiate(dieEffect, transform.position, transform.rotation);
         AudioManager.instance.Play("Goul_Die_01");
         AudioManager.instance.Stop("Energy_01");

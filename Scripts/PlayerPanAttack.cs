@@ -81,10 +81,11 @@ public class PlayerPanAttack : MonoBehaviour
                 {
                     if (PanManager.instance.IsAvailableToCapture())  // Roll이 슬롯 갯수보다 작으면 캡쳐실행
                     {
+                        TakeDamage _takeDamage = enemy.GetComponent<TakeDamage>();
                         EnemyHealth _enemyHealth = enemy.GetComponent<EnemyHealth>();
-                        if (_enemyHealth != null)
+                        if (_takeDamage != null)
                         {
-                            _enemyHealth.GetRolled();
+                            _takeDamage.GetRolled();
                         }
                     }
                 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4267970416901682386}
   - component: {fileID: 5657708556715121563}
   - component: {fileID: 3559041546595256820}
+  - component: {fileID: 8208594278850634733}
   m_Layer: 0
   m_Name: Goul_Die
   m_TagString: Untagged
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1856425771
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 6170021487190196104, guid: 247ffc888743d724ba0adc243d9ed5e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,3 +103,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8208594278850634733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257496888122881004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f06a55b69396d146a417cedd93b09fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 1

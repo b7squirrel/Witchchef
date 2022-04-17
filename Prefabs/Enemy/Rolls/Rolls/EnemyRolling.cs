@@ -47,7 +47,7 @@ public class EnemyRolling : MonoBehaviour
             case rollingState.captured:
 
                 transform.position = Vector2.Lerp(transform.position, _captureBoxPlayer.position, captureSpeed * Time.deltaTime);
-                if (Vector2.Distance(transform.position, _captureBoxPlayer.position) < .2f)
+                if (Vector2.Distance(transform.position, _captureBoxPlayer.position) < 1f)
                 {
                     currentState = rollingState.onPan;
                     PanManager.instance.AcquireRoll(transform);
