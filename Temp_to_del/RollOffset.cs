@@ -117,7 +117,6 @@ public class RollOffset : MonoBehaviour
 
             if (_isGrounded)
             {
-                Debug.Log("Slot " + i + " is grounded");
                 Vector3 _position = _slots[i].transform.position;
                 Vector3 _positionParent = _slots[i - 1].transform.position;
                 _slots[i].transform.position = new Vector3(_position.x, 1f + _positionParent.y);

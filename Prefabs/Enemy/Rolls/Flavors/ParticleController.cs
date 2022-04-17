@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 일단 numberOfRoll를 1로 해두었다. 나중에 Merge를 구현하면 그 때 값을 받아서 그에 맞는 파티클을 재생하도록 하자.
+/// </summary>
 public class ParticleController : MonoBehaviour
 {
     private ParticleSystem ps;
@@ -10,62 +13,58 @@ public class ParticleController : MonoBehaviour
     public float shapeRadius;
     public float shapeAngle;
     public bool emission;
-
-    // Cooking System에서 아웃풋을 생성할 때 Flavor 갯수를 넘겨받는다
-    // Pan Attack에서 Hit Roll 때 Flavor 갯수를 넘겨받는다
-    // 한 곳에서 깔끔하게 갯수를 넘겨 받도록 수정해야 함
-    [Header("Passed by PanAttack / CookingSystem")]
-    public int numberOfRolls;
+    
+    public bool isFollowing;
+    Transform _rollToFollow;
 
     private void Start()
     {
         ps = GetComponent<ParticleSystem>();
-    }
 
-    private void Update()
-    {
         var psMain = ps.main;
         var psShape = ps.shape;
         var psEmission = ps.emission;
         psEmission.enabled = true;
+        
+        psMain.startLifetimeMultiplier = 0;
+        psMain.startSizeMultiplier = .1f;
 
-        if (numberOfRolls == 0)
+        psShape.radius = .01f;
+        psShape.angle = 15;
+    }
+
+    private void Update()
+    {
+        if (isFollowing)
         {
-            psEmission.enabled = false;
+            FollowSlot();
         }
-        if (numberOfRolls == 1)
+    }
+
+    public void SetSlotToFollow(PanSlot _slot)
+    {
+        _rollToFollow = _slot.GetComponent<PanSlot>().GetRoll();
+        isFollowing = true;
+    }
+
+    /// <summary>
+    /// 롤이 땅이나 적에게 부딪쳐서 파괴되어 버렸을 때는 더 이상 Follow를 수행하지 못하도록 스스로 파괴
+    /// </summary>
+    void FollowSlot()
+    {
+        if (_rollToFollow != null)
         {
-            psMain.startLifetimeMultiplier = 0;
-            psMain.startSizeMultiplier = -.3f;
-
-            psShape.radius = .6f;
-            psShape.angle = 2;
+            transform.position = _rollToFollow.position;
         }
-        if (numberOfRolls == 2)
+        else
         {
-            psMain.startLifetimeMultiplier = .7f;
-            psMain.startSizeMultiplier = .3f;
-
-            psShape.radius = .8f;
-            psShape.angle = 35;
+            DestroyParticle();
         }
-        if (numberOfRolls == 3)
-        {
-            psMain.startLifetimeMultiplier = 1;
-            psMain.startSizeMultiplier = .6f;
-
-            psShape.radius = 1;
-            psShape.angle = 35;
-        }
-        //psMain.startLifetimeMultiplier = lifeTimeMultiplier;
-        //psMain.startSizeMultiplier = sizeMultiplier;
-
-        //psShape.radius = shapeRadius;
-        //psShape.angle = shapeAngle;
     }
 
     public void DestroyParticle()
     {
+        isFollowing = false;
         Destroy(gameObject);
     }
 }

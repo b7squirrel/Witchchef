@@ -20,7 +20,6 @@ public class EnemyProjectile : MonoBehaviour
     private bool isFlying; // parry 되어서 날아가는 상태. 아무것도 안함. 
 
     public bool isCaptured; // 캡쳐되었음을 전달 받고 이 스크립트에서 getRolled를 구현
-    private bool isGettingIn; // 캡쳐되어서 후라이팬 안으로 들어가는 단계
     public float gettingInSpeed; // 팬 위로 올라가는 속도
 
     public float deflectionDelayTime;
@@ -49,34 +48,13 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
-
-        if (isDelayed)
-        {
-            theRB.velocity = new Vector2(0, 0);
-        }
-
-        _smoke.transform.position = Vector2.MoveTowards(_smoke.transform.position,
-                transform.position, 5f);
-        _debris.transform.position = Vector2.MoveTowards(_debris.transform.position,
-    transform.position, 5f);
+        MoveParticles();
+        PauseProjectileOnHit();
 
         if (isCaptured)
         {
-            if (isGettingIn)
-            {
-                GetIn();
-            }
-            else
-            {
-                if(Inventory.instance.isFlavored) // 포화상태이면 소멸, 아니라면 GetFlavored
-                {
-                    Saturated();
-                }
-                else
-                {
-                    GetFlavored();
-                }
-            }
+            GetFlavored();
+            DestroyProjectile();
         }
         else
         {
@@ -85,7 +63,6 @@ public class EnemyProjectile : MonoBehaviour
                 if (!isParried)
                 {
                     theRB.velocity = new Vector2(moveDirection.x, moveDirection.y);
-                    
                 }
                 else
                 {
@@ -99,16 +76,10 @@ public class EnemyProjectile : MonoBehaviour
                     theRB.gravityScale = 1f;
                     Instantiate(deflectionHitEffect, transform.position, Quaternion.identity);
                     StartCoroutine(DelayDeflection());
-                    
 
                     GameManager.instance.StartCameraShake(6, 1.3f);
                     GameManager.instance.TimeStop(.2f);
                 }
-            }
-            else
-            {
-                // 패링이 된 상태에서 날아가는 중
-                float _distance = Mathf.Abs(initialPoint.x - transform.position.x);
             }
         }
     }
@@ -124,10 +95,35 @@ public class EnemyProjectile : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-            if (this.gameObject.tag == "ProjectileDeflected")
+            if (gameObject.CompareTag("ProjectileDeflected"))
             {
                 DestroyProjectile();
             }
+        }
+    }
+    void GetFlavored()
+    {
+        AudioManager.instance.Play("GetRolled_01");
+        PanManager.instance.AcquireFlavor(flavorSo);
+    }
+    private void DestroyProjectile()
+    {
+        Destroy(_smoke);
+        Destroy(_debris);
+        Destroy(gameObject);
+    }
+    void MoveParticles()
+    {
+        _smoke.transform.position = Vector2.MoveTowards(_smoke.transform.position,
+                transform.position, 5f);
+        _debris.transform.position = Vector2.MoveTowards(_debris.transform.position,
+    transform.position, 5f);
+    }
+    void PauseProjectileOnHit()
+    {
+        if (isDelayed)
+        {
+            theRB.velocity = new Vector2(0, 0);
         }
     }
     IEnumerator DelayDeflection()
@@ -159,40 +155,5 @@ public class EnemyProjectile : MonoBehaviour
         result.y = Vy;
 
         return result;
-    }
-    void GetFlavored()
-    {
-        AudioManager.instance.Play("GetRolled_01");
-        Inventory.instance.AcquireFlavor(flavorSo);
-        CookingSystem.instance.CreateFlavorOutput();
-        isGettingIn = true;
-        gameObject.tag = "Player";
-    }
-    void GetIn()
-    {
-        if(Vector2.Distance(transform.position,
-            PlayerPanAttack.instance.transform.position) <= .1f)
-        {
-            DestroyProjectile();
-        }
-        else
-        {
-            Vector2.MoveTowards(transform.position,
-                PlayerPanAttack.instance.transform.position, gettingInSpeed);
-        }
-    }
-
-    private void DestroyProjectile()
-    {
-        isGettingIn = false;
-        Destroy(_smoke);
-        Destroy(_debris);
-        Destroy(gameObject);
-    }
-
-    private void Saturated()
-    {
-        // 포화상태여서 사그라드는 애니메이션이 필요
-        DestroyProjectile();
     }
 }

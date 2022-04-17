@@ -11,6 +11,14 @@ public class EnemyRolling : MonoBehaviour
     private enum rollingState { shooting, captured, onPan };
     private rollingState currentState;
 
+    /// <summary>
+    /// projectile을 캡쳐하면 EnemyProjectile이 PanManager의 acquireFlavor실행
+    /// 그 projectile의 flavorSO를 롤의 m_flavorSO에 전달
+    /// 그러면 나중에 쳐내면 EnemyRolling는 RollType, FlavorType을 모두 가지고 있게 된다.
+    /// </summary>
+    public bool isFlavored;
+    public FlavorSo m_flavorSO;  
+
     [Header("When Cleared")]
     public float horizontalSpeed;
     public float verticalSpeed;
@@ -35,6 +43,7 @@ public class EnemyRolling : MonoBehaviour
 
     void Update()
     {
+        // Pan Manager의 ClearRoll에서 모든 롤의 tag를 Rolling으로 적용.
         if (this.tag == "Rolling")
         {
             currentState = rollingState.shooting;
@@ -60,20 +69,20 @@ public class EnemyRolling : MonoBehaviour
                 break;
         }
     }
-
-    // ground나 enemy에 충돌하면 explosion을 생성하고 사이즈값을 넘겨준 뒤 자신을 destroy시킨다
+    // ground나 enemy에 충돌하면 자신을 destroy시킨다
     // 만약 flavor가 있다면 폭발을 생성한다
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("RollsOnPan"))
-    //    {
-    //        return;
-    //    }
-    //    if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
+        {
+            if (m_flavorSO != null)
+            {
+                Instantiate(m_flavorSO.actionPrefab, transform.position, transform.rotation);
+            }
+            Debug.Log(collision.CompareTag("Ground"));
+            DestroyPrefab();
+        }
+    }
     public void DestroyPrefab()
     {
         Destroy(gameObject);

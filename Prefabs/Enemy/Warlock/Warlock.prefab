@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1895849756276148768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537898492130272664}
+  m_Layer: 7
+  m_Name: Die Effect Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537898492130272664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895849756276148768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7444050165371110267}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7444050163875142559
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +538,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1537898492130272664}
   m_Father: {fileID: 7444050164847206412}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -550,6 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa511d730db8884e868288402949d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRollType: 2
   currentHP: 0
   maxHP: 1
   isStunned: 0
@@ -557,8 +589,8 @@ MonoBehaviour:
   isRolling: 0
   dieEffect: {fileID: 6987084327100221053, guid: 036f43595c5bb0743a94c6b3227bc1f5, type: 3}
   dieBones: {fileID: 4603347380383349277, guid: b7da27b8c33bd934587a2e98bafde3a1, type: 3}
+  dieEffectPoint: {fileID: 1537898492130272664}
   isCaptured: 0
-  rollSo: {fileID: 11400000, guid: 0ca4c343adfc845469173fb00ba80984, type: 2}
   whiteMat: {fileID: 2100000, guid: 8ec93e96670acbe42ad1c1e3ea6e9768, type: 2}
   mSprite: {fileID: 7444050164934169143}
   blinkingDuration: 0.2

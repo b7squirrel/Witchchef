@@ -12,7 +12,10 @@ public class PanManager : MonoBehaviour
     public PanSlot spareSlot;
 
     PanSlot[] _panSlots;
+    public Transform _flavorEffectRot;  //파티클이 이상하게 붙어서 x축으로 -90도 회전시킴
     BoxCollider2D _boxCol;
+
+    public Transform hitRollPoint;  // HitRoll을 할 때 자꾸 롤이 그라운드 판정이 나면서 사라짐. 그래서 좀 띄워서 발사해봄
 
     private void Awake()
     {
@@ -32,6 +35,23 @@ public class PanManager : MonoBehaviour
             {
                 _panSlots[i].AddRoll(_prefab);
                 return;
+            }
+        }
+    }
+
+    //슬롯을 돌면서 매개변수로 받은 flavorSO에서 해당 이펙트를 추출하고 각 슬롯을 따라가게 한다. 
+    //슬롯의 롤들에게 isFlavored = true 값을 전달한다. 
+    public void AcquireFlavor(FlavorSo _flavorSo)
+    {
+        for (int i = 0; i < _panSlots.Length; i++)
+        {
+            if (!_panSlots[i].IsEmpty())
+            {
+                var _clone = Instantiate(_flavorSo.flavorParticle, _panSlots[i].transform.position, _flavorEffectRot.rotation);
+                _clone.GetComponent<ParticleController>().SetSlotToFollow(_panSlots[i]);
+
+                _panSlots[i].GetRoll().GetComponent<EnemyRolling>().isFlavored = true;
+                _panSlots[i].GetRoll().GetComponent<EnemyRolling>().m_flavorSO = _flavorSo;
             }
         }
     }
@@ -61,7 +81,18 @@ public class PanManager : MonoBehaviour
     {
         int _numberOfRolls = CountRollNumber();
         GameObject _roll = _panSlots[0].GetRoll().gameObject;
-        _roll.tag = "Rolling";
+        _roll.transform.position = hitRollPoint.position;
+
+        if (_roll.GetComponent<EnemyRolling>().isFlavored)
+        {
+            _roll.tag = "RollFlavored";
+            _roll.GetComponent<EnemyRolling>().isFlavored = false;
+        }
+        else
+        {
+            _roll.tag = "Rolling";
+        }
+
         float _direction = PlayerController.instance.staticDirection;
         float _hSpeed = _roll.GetComponent<EnemyRolling>().horizontalSpeed;
         float _vSpeed = _roll.GetComponent<EnemyRolling>().verticalSpeed;

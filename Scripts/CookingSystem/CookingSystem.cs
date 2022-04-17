@@ -117,22 +117,22 @@ public class CookingSystem : MonoBehaviour
 
         // flavor 갯수, 타입 
         // recipe에서 검색해서 output flavor 찾아내기
-        for (int i = 0; i < myRecipeFlavor.recipeFlavor.Length; i++)
-        {
-            if (myRecipeFlavor.recipeFlavor[i].flavorType == _flavorNameOnPan)
-            {
-                outputFlavor = myRecipeFlavor.recipeFlavor[i];
-                outputFlavor.flavorType = myRecipeFlavor.recipeFlavor[i].flavorType;
+        //for (int i = 0; i < myRecipeFlavor.recipeFlavor.Length; i++)
+        //{
+        //    if (myRecipeFlavor.recipeFlavor[i].flavorType == _flavorNameOnPan)
+        //    {
+        //        outputFlavor = myRecipeFlavor.recipeFlavor[i];
+        //        outputFlavor.flavorType = myRecipeFlavor.recipeFlavor[i].flavorType;
 
-                // Flavor Particle 생성 (그 전에 이전에 생성되었던 파티클이 있으면 제거)
-                ResetFlavorParticle();
-                GameObject _flavorParticle = Instantiate(outputFlavor.flavorParticle, roll_Slot.transform.position, Quaternion.identity);
-                _flavorParticle.transform.parent = roll_Slot.transform;
-                _flavorParticle.GetComponent<ParticleController>().numberOfRolls = inventory.numberOfRolls;
-                _flavorParticle.transform.localEulerAngles = new Vector3(-90, 0, 0);
-                return;
-            }
-        }
+        //        // Flavor Particle 생성 (그 전에 이전에 생성되었던 파티클이 있으면 제거)
+        //        ResetFlavorParticle();
+        //        GameObject _flavorParticle = Instantiate(outputFlavor.flavorParticle, roll_Slot.transform.position, Quaternion.identity);
+        //        _flavorParticle.transform.parent = roll_Slot.transform;
+        //        _flavorParticle.GetComponent<ParticleController>().numberOfRolls = inventory.numberOfRolls;
+        //        _flavorParticle.transform.localEulerAngles = new Vector3(-90, 0, 0);
+        //        return;
+        //    }
+        //}
     }
     public void ResetOutputs()
     {

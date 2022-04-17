@@ -17,15 +17,13 @@ public class PlayerCaptureBox : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ProjectileEnemy"))
+        if (collision.CompareTag("ProjectileEnemy") && PlayerPanAttack.instance.CaptureTimer > 0)
         {
-            if (PlayerPanAttack.instance.CaptureTimer > 0)
-            {
-                collision.GetComponent<EnemyProjectile>().isCaptured = true;
-            }
+            EnemyProjectile _clone = collision.GetComponent<EnemyProjectile>();
+            _clone.isCaptured = true;
+            _clone.tag = "ProjectileCaptured";
         }
     }
-
 
     private void OnDrawGizmos()
     {
