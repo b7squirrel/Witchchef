@@ -24,14 +24,6 @@ public class PlayerCaptureBox : MonoBehaviour
                 collision.GetComponent<EnemyProjectile>().isCaptured = true;
             }
         }
-        if (collision.CompareTag("RollCaptured"))
-        {
-            if (collision.CompareTag("RollCaptured"))
-            {
-                PanManager.instance.AcquireRoll(collision.transform);
-                collision.GetComponent<EnemyRolling>().isOnPan = true;
-            }
-        }
     }
 
 

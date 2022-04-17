@@ -61,10 +61,13 @@ public class PanManager : MonoBehaviour
     {
         int _numberOfRolls = CountRollNumber();
         GameObject _roll = _panSlots[0].GetRoll().gameObject;
+        _roll.tag = "Rolling";
         float _direction = PlayerController.instance.staticDirection;
         float _hSpeed = _roll.GetComponent<EnemyRolling>().horizontalSpeed;
         float _vSpeed = _roll.GetComponent<EnemyRolling>().verticalSpeed;
         Rigidbody2D _theRB = _roll.AddComponent<Rigidbody2D>();
+        BoxCollider2D _boxCol = _roll.AddComponent<BoxCollider2D>();
+        _boxCol.isTrigger = true;
         _theRB.gravityScale = _roll.GetComponent<EnemyRolling>().gravity;
         _theRB.velocity = new Vector2(_direction * _hSpeed, _vSpeed);
 

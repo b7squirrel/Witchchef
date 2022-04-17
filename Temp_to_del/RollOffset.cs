@@ -13,6 +13,7 @@ public class RollOffset : MonoBehaviour
     Vector2[] currentSlotPoint = new Vector2[3];
     Vector2[] pastSlotPoint = new Vector2[3];
     Vector2[] deltaSlotDistance = new Vector2[3];
+    float[] verticalVelocity = new float[3];
 
     BoxCollider2D[] _boxCol;
 
@@ -105,23 +106,23 @@ public class RollOffset : MonoBehaviour
         _slots[0].transform.position = new Vector3(_slots[0].transform.position.x, .5f + anchorPoint.transform.position.y);
         for (int i = 1; i < _slots.Length; i++)
         {
-            RaycastHit2D _hit = Physics2D.Raycast(_slots[i].transform.position + new Vector3(0, -.5f), Vector2.down, .5f, panLayer);
-            bool _isGrounded = 
-                Physics2D.OverlapBox(_slots[i].transform.position + new Vector3(0, -.5f), new Vector2(1, .2f), panLayer);
+            bool _isGrounded =
+                Physics2D.OverlapBox(_slots[i].transform.position + new Vector3(0, -.5f), new Vector2(1, .3f), panLayer);
+
+            verticalVelocity[i] += -gravityScale * _gravity * Time.deltaTime;
+
+            Vector3 m_position = _slots[i].transform.position;
+            _slots[i].transform.Translate(new Vector3(0, verticalVelocity[i], 0) * Time.deltaTime);
+            _slots[i].transform.position = new Vector3(m_position.x, _slots[i].transform.position.y);
+
             if (_isGrounded)
             {
-                isGrounded[i] = true;
+                Debug.Log("Slot " + i + " is grounded");
                 Vector3 _position = _slots[i].transform.position;
                 Vector3 _positionParent = _slots[i - 1].transform.position;
                 _slots[i].transform.position = new Vector3(_position.x, 1f + _positionParent.y);
             }
-            else
-            {
-                isGrounded[i] = false;
-                Vector3 _position = _slots[i].transform.position;
-                _slots[i].transform.Translate(new Vector3(0, -gravityScale * _gravity * Time.deltaTime, 0) * Time.deltaTime);
-                _slots[i].transform.position = new Vector3(_position.x, _slots[i].transform.position.y);
-            }
+
         }
     }
     void Flip()

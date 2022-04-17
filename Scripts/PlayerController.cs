@@ -23,14 +23,6 @@ public class PlayerController : MonoBehaviour
     public float jumpRememberTime;
     private float jumpRemember;
 
-    [Header("Roll Weight")]
-    public float weight;
-    public float weightRate;
-
-    RollOffset _rollOffsets;
-
-
-
     public float CurrentDirection
     {
         get { return currentDirection; }
@@ -55,8 +47,6 @@ public class PlayerController : MonoBehaviour
         previousDirection = currentDirection;
         _initialJumpForce = jumpForce;
         _initialMoveSpeed = moveSpeed;
-
-        _rollOffsets = FindObjectOfType<RollOffset>().GetComponent<RollOffset>();
     }
 
     void Update()
@@ -141,25 +131,6 @@ public class PlayerController : MonoBehaviour
             theRB.gravityScale = 11f;
         }
     }
-
-    public void WeightCalculation()
-    {
-        moveSpeed = moveSpeed - (weight * weightRate);
-        jumpForce = jumpForce - (weight * weightRate);
-    }
-
-    public void DecreaseWeight()
-    {
-        weight--;
-    }
-
-    public void ResetWeight()
-    {
-        weight = 0f;
-        jumpForce = _initialJumpForce;
-        moveSpeed = _initialMoveSpeed;
-    }
-
     void SetAnimationState()
     {
         if (Input.GetAxisRaw("Horizontal") == 0)  // idle

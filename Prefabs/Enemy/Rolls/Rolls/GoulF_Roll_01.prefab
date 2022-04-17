@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 5870785133431812955}
   - component: {fileID: 6761403170090315552}
   - component: {fileID: 49773979135360077}
-  - component: {fileID: -5437380155496113783}
   - component: {fileID: -4512921042520875413}
   m_Layer: 6
   m_Name: GoulF_Roll_01
@@ -135,32 +134,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &-5437380155496113783
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7610329646806732424}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.125, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &-4512921042520875413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 18
   verticalSpeed: 6
-  gravity: 2
-  captureSpeed: 10
-  isOnPan: 0
+  gravity: 1
+  captureSpeed: 15
   hitEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}
   hitEffectPoint: {fileID: 463625268805735587}

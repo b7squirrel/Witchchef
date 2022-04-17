@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyRolling : MonoBehaviour
 {
-    private enum rollingState { shooting, flying, captured, onPan };
+    private enum rollingState { shooting, captured, onPan };
     private rollingState currentState;
 
     [Header("When Cleared")]
@@ -17,11 +17,10 @@ public class EnemyRolling : MonoBehaviour
     public float gravity;
 
     [Header("When Captured")]
-    PlayerCaptureBox _playerCaptureBox;
+    Transform _captureBoxPlayer;
     public float captureSpeed; // 캡쳐된 후 player capture box까지 다가가는데 걸리는 시간
     // 캡쳐된 후 팬위에 올라와서 pan manager에서 acquireRoll이 실행된 상황
     // Player Capture Box에서 충돌체크 후 전달
-    public bool isOnPan;
 
     [Header("Hit Effects")]
     public GameObject hitEffect;
@@ -29,30 +28,30 @@ public class EnemyRolling : MonoBehaviour
 
     void Start()
     {
-        _playerCaptureBox = FindObjectOfType<PlayerCaptureBox>();
         currentState = rollingState.captured;
         this.tag = "RollCaptured";
+        _captureBoxPlayer = FindObjectOfType<PlayerCaptureBox>().transform;
     }
 
     void Update()
     {
-        if (isOnPan)
+        if (this.tag == "Rolling")
         {
-            currentState = rollingState.onPan;
+            currentState = rollingState.shooting;
         }
-
         switch (currentState)
         {
             case rollingState.shooting:
-                this.tag = "Rolling";
-                currentState = rollingState.flying;
-                break;
-
-            case rollingState.flying:
                 break;
 
             case rollingState.captured:
-                Vector2.MoveTowards(transform.position, _playerCaptureBox.transform.position, captureSpeed * Time.deltaTime);
+
+                transform.position = Vector2.Lerp(transform.position, _captureBoxPlayer.position, captureSpeed * Time.deltaTime);
+                if (Vector2.Distance(transform.position, _captureBoxPlayer.position) < .2f)
+                {
+                    currentState = rollingState.onPan;
+                    PanManager.instance.AcquireRoll(transform);
+                }
                 break;
 
             case rollingState.onPan:
@@ -64,17 +63,17 @@ public class EnemyRolling : MonoBehaviour
 
     // ground나 enemy에 충돌하면 explosion을 생성하고 사이즈값을 넘겨준 뒤 자신을 destroy시킨다
     // 만약 flavor가 있다면 폭발을 생성한다
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("RollsOnPan"))
-        {
-            return;
-        }
-        if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("RollsOnPan"))
+    //    {
+    //        return;
+    //    }
+    //    if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     public void DestroyPrefab()
     {
         Destroy(gameObject);

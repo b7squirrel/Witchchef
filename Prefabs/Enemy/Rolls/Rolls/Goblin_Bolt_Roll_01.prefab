@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7913927067469140931}
   - component: {fileID: 7025484687215611832}
   - component: {fileID: 4330783261105822933}
-  - component: {fileID: 585563382357522705}
   - component: {fileID: 9075948956322135795}
   m_Layer: 6
   m_Name: Goblin_Bolt_Roll_01
@@ -105,32 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &585563382357522705
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6140534103621643792}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.125, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &9075948956322135795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,9 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 18
   verticalSpeed: 6
-  gravity: 2
-  captureSpeed: 0
-  isOnPan: 0
+  gravity: 1
+  captureSpeed: 15
   hitEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}
   hitEffectPoint: {fileID: 4235070285198373947}
 --- !u!1 &8517460582783027541

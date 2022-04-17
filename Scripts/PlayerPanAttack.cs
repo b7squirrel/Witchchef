@@ -114,8 +114,4 @@ public class PlayerPanAttack : MonoBehaviour
             //}
         }
     }
-    void HitRoll()
-    {
-        PlayerController.instance.ResetWeight();
-    }
 }

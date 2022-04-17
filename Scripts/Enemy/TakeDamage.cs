@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TakeDamage : MonoBehaviour
 {
+    public Roll.rollType myRollType;
     public int currentHP;
     public int maxHP;
 
@@ -16,7 +17,6 @@ public class TakeDamage : MonoBehaviour
 
     [Header("Rolling")]
     public bool isCaptured;
-    public RollSO rollSo;
 
     [Header("White Flash")]
     public Material whiteMat;
@@ -78,19 +78,18 @@ public class TakeDamage : MonoBehaviour
         }
     }
 
-    public void GetRolled()  
+    public void GetRolled()
     {
         AudioManager.instance.Stop("Energy_01");
         AudioManager.instance.Play("GetRolled_01");
-        Inventory.instance.AcquireRoll(rollSo);
-        CookingSystem.instance.CreateRollOutput();
+
         isStunned = false;
         isCaptured = false;
-        PlayerController.instance.weight++;
-        PlayerController.instance.WeightCalculation();
-        HideEnemy();
+
+        RollSO _rollSo = RecipeRoll.instance.GetRollSo(myRollType);
+        Instantiate(_rollSo.rollPrefab[0], transform.position, transform.rotation);
+        Die();
     }
-        
     public void Die()
     {
         Instantiate(dieBones, transform.position, transform.rotation);
@@ -101,15 +100,6 @@ public class TakeDamage : MonoBehaviour
         isStunned = false;
         isCaptured = false;
         Destroy(transform.parent.gameObject);
-        //transform.parent.gameObject.SetActive(false);
-        
-    }
-    void HideEnemy()
-    {
-        currentHP = maxHP;
-        isStunned = false;
-        isCaptured = false;
-        transform.parent.gameObject.SetActive(false);
     }
     IEnumerator WhiteFlash()
     {
