@@ -28,13 +28,12 @@ public class PanSlot : MonoBehaviour
         _prefab.position = transform.position;
         _prefab.rotation = transform.rotation;
         _prefab.parent = transform;
-        _prefab.tag = "RollsOnPan";
         isEmpty = false;
     }
 
     public Transform GetRoll()
     {
-        return GetComponentInChildren<RollObject>().transform;
+        return GetComponentInChildren<EnemyRolling>().transform;
     }
 
     public void MoveRoll(PanSlot _targetSlot)
@@ -65,13 +64,17 @@ public class PanSlot : MonoBehaviour
         {
             if (PlayerController.instance.staticDirection > 0)
             {
-                RollObject _roll = GetComponentInChildren<RollObject>();
+                //float _rotateZ = transform.eulerAngles.z;
+                //transform.eulerAngles = new Vector3(0, 0, _rotateZ);
+                EnemyRolling _roll = GetComponentInChildren<EnemyRolling>();
                 float _rotationZ = _roll.transform.eulerAngles.z;
                 _roll.transform.eulerAngles = new Vector3(0, 0, _rotationZ);
             }
             else
             {
-                RollObject _roll = GetComponentInChildren<RollObject>();
+                //float _rotateZ = transform.eulerAngles.z;
+                //transform.eulerAngles = new Vector3(0, 180f, _rotateZ);
+                EnemyRolling _roll = GetComponentInChildren<EnemyRolling>();
                 float _rotationZ = _roll.transform.eulerAngles.z;
                 _roll.transform.eulerAngles = new Vector3(0, 180f, _rotationZ);
             }

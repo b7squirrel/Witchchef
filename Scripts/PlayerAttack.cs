@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if(inventory.InputSlots[0].GetRoll().rollSo.rollType == Roll.rollType.none)  // 패닝 중일 때는 PanThrowing 이 발동되야 하니까 공격은 나가지 않게
+            if(PanManager.instance.CountRollNumber() == 0)  // 롤이 팬 위에 없으면 일반 공격
             {
                 if(attackTimer <= 0f)
                 {

@@ -38,14 +38,6 @@ public class PanManager : MonoBehaviour
 
     public void FlipRoll()
     {
-        //for (int i = 0; i < _panSlots.Length; i++)
-        //{
-        //    if (_panSlots[i].isEmpty)
-        //    {
-        //        return;
-        //    }
-        //    _panSlots[i].Flip();
-        //}
         if (_panSlots[0].IsEmpty())
             return;
         _panSlots[0].FlipRoll();
@@ -70,14 +62,15 @@ public class PanManager : MonoBehaviour
         int _numberOfRolls = CountRollNumber();
         GameObject _roll = _panSlots[0].GetRoll().gameObject;
         float _direction = PlayerController.instance.staticDirection;
-        float _hSpeed = _roll.GetComponent<RollObject>().horizontalSpeed;
-        float _vSpeed = _roll.GetComponent<RollObject>().verticalSpeed;
+        float _hSpeed = _roll.GetComponent<EnemyRolling>().horizontalSpeed;
+        float _vSpeed = _roll.GetComponent<EnemyRolling>().verticalSpeed;
         Rigidbody2D _theRB = _roll.AddComponent<Rigidbody2D>();
-        _theRB.gravityScale = _roll.GetComponent<RollObject>().gravity;
+        _theRB.gravityScale = _roll.GetComponent<EnemyRolling>().gravity;
         _theRB.velocity = new Vector2(_direction * _hSpeed, _vSpeed);
 
         _panSlots[0].RemoveRoll();
-        // 0번 슬롯의 롤을 비워주고 롤 갯수릉 하나 줄임
+
+        // 0번 슬롯의 롤을 비워주고 롤 갯수를 하나 줄임
         for (int i = 0; i < _numberOfRolls - 1; i++)
         {
             _panSlots[i + 1].MoveRoll(_panSlots[i]);
@@ -96,12 +89,13 @@ public class PanManager : MonoBehaviour
         return _panSlots.Length;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool IsAvailableToCapture()
     {
-        if (collision.CompareTag("Rolling"))
+        if (CountRollNumber() < _panSlots.Length)
         {
-            AcquireRoll(collision.transform);
+            return true;
         }
+        return false;
     }
 
     private void OnDrawGizmos()

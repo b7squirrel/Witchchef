@@ -11,6 +11,10 @@ public class PlayerCaptureBox : MonoBehaviour
         boxCol = GetComponent<BoxCollider2D>();
     }
 
+    /// <summary>
+    /// Capture Timer가 0보다 크다는 말은 캡쳐버튼을 눌러서 Capture Duration값으로 초기화 되었다는 의미
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ProjectileEnemy"))
@@ -20,9 +24,13 @@ public class PlayerCaptureBox : MonoBehaviour
                 collision.GetComponent<EnemyProjectile>().isCaptured = true;
             }
         }
-        if (collision.CompareTag("Rolling"))
+        if (collision.CompareTag("RollCaptured"))
         {
-            PanManager.instance.AcquireRoll(collision.transform);
+            if (collision.CompareTag("RollCaptured"))
+            {
+                PanManager.instance.AcquireRoll(collision.transform);
+                collision.GetComponent<EnemyRolling>().isOnPan = true;
+            }
         }
     }
 

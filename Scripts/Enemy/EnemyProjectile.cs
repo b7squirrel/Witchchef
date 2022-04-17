@@ -5,6 +5,7 @@ using UnityEngine;
 
 /// <summary>
 /// Player Attack Box에서 isParried 와 contactPoint를 제어함
+/// Player Capture Box에서 isCaptured를 제어함
 /// </summary>
 public class EnemyProjectile : MonoBehaviour
 {

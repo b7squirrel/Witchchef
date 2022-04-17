@@ -21,6 +21,14 @@ public class PanMove : MonoBehaviour
             if (PanManager.instance.CountRollNumber() == 0)
                 return;
             PanManager.instance.ClearRoll();
+            EffectsClearRoll();
         }
+    }
+    void EffectsClearRoll()
+    {
+        AudioManager.instance.Play("fire_explosion_01");
+        AudioManager.instance.Play("pan_hit_03");
+        GameManager.instance.StartCameraShake(8, .8f);
+        GameManager.instance.TimeStop(.1f);
     }
 }

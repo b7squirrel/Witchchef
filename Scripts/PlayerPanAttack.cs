@@ -79,12 +79,12 @@ public class PlayerPanAttack : MonoBehaviour
             {
                 if(enemy.gameObject.CompareTag("Enemy"))
                 {
-                    if (inventory.numberOfRolls < inventory.InputSlots.Length)  // Roll이 슬롯 갯수보다 작으면 캡쳐실행
+                    if (PanManager.instance.IsAvailableToCapture())  // Roll이 슬롯 갯수보다 작으면 캡쳐실행
                     {
-                        TakeDamage takeDmg = enemy.GetComponent<TakeDamage>();
-                        if (takeDmg != null)
+                        EnemyHealth _enemyHealth = enemy.GetComponent<EnemyHealth>();
+                        if (_enemyHealth != null)
                         {
-                            takeDmg.isCaptured = true;
+                            _enemyHealth.GetRolled();
                         }
                     }
                 }
@@ -116,36 +116,6 @@ public class PlayerPanAttack : MonoBehaviour
     }
     void HitRoll()
     {
-        // Roll Type, Flavor Type, Roll 갯수, Flavor 갯수 얻어내는 함수를 Inventory에 구현하기
-        Roll.rollType _roll = inventory.InputSlots[0].GetRoll().rollSo.rollType;
-        int _rollNumber = inventory.numberOfRolls;
-
-        Vector3 _hitPoint = transform.position + new Vector3(PlayerController.instance.staticDirection * 2.2f, 0);
-
-        // Roll, Flavor 생성
-        GameObject _rollPrefab = Instantiate(CookingSystem.instance.outputRoll.rollPrefab[inventory.numberOfRolls - 1], _hitPoint, transform.rotation);
-        _rollPrefab.GetComponent<EnemyRolling>().numberOfRolls = inventory.numberOfRolls;
-        _rollPrefab.GetComponent<EnemyRolling>().theFlavorSo = CookingSystem.instance.outputFlavor; // flavor액션을 가져오기 위해
-        
-        if (inventory.isFlavored)
-        {
-            _rollPrefab.GetComponent<EnemyRolling>().isFlavored = true;
-
-            GameObject _flavorPrefab = Instantiate(CookingSystem.instance.outputFlavor.flavorParticle, _hitPoint, transform.rotation);
-            _flavorPrefab.transform.parent = _rollPrefab.transform;
-            _flavorPrefab.GetComponent<ParticleController>().numberOfRolls = inventory.numberOfRolls;
-            _flavorPrefab.transform.localEulerAngles = new Vector3(-90, 0, 0);
-        }
-        _rollPrefab.GetComponent<EnemyRolling>().BeingHit();
-
-        Instantiate(HitRollEffect, captureBox.position, Quaternion.identity);
-
-
-        AudioManager.instance.Play("fire_explosion_01");
-        AudioManager.instance.Play("pan_hit_03");
         PlayerController.instance.ResetWeight();
-
-        inventory.ResetInventory();
-        CookingSystem.instance.ResetOutputs();
     }
 }

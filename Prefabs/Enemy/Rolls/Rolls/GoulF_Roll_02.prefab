@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 5659502307548555463}
   - component: {fileID: 2953908049027195003}
   - component: {fileID: 4883208717288359323}
-  - component: {fileID: 8986745034465973868}
   - component: {fileID: 5833243242861419017}
   - component: {fileID: 3594895944895814745}
   m_Layer: 6
@@ -136,27 +135,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &8986745034465973868
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222311326959845307}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &5833243242861419017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,12 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cf8164bc1e5ce41bfa36b5276c9f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followingPanSpeed: 30
-  beingHit: 0
-  initForce_x: 25
-  initForce_y: 4
+  horizontalSpeed: 18
+  verticalSpeed: 6
+  gravity: 2
+  captureSpeed: 0
+  isOnPan: 0
   hitEffect: {fileID: 2720419082649462560, guid: e6a0bf88b6867174bb7e0843401eeb70, type: 3}
   hitEffectPoint: {fileID: 8031523339183027474}
-  numberOfRolls: 2
-  isFlavored: 0
-  theFlavorSo: {fileID: 0}
