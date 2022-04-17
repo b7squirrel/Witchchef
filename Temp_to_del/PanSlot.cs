@@ -6,11 +6,6 @@ public class PanSlot : MonoBehaviour
 {
     public bool isEmpty = true;
 
-    private void Update()
-    {
-        
-    }
-
     public bool IsEmpty()
     {
         if (isEmpty)
@@ -59,8 +54,27 @@ public class PanSlot : MonoBehaviour
         isEmpty = true;
     }
 
-    public void Flip()
+    public void FlipRoll()
     {
         GetRoll().localEulerAngles += new Vector3(0, 0, 45f);
+    }
+
+    public void FlipSprite()
+    {
+        if (!isEmpty)
+        {
+            if (PlayerController.instance.staticDirection > 0)
+            {
+                RollObject _roll = GetComponentInChildren<RollObject>();
+                float _rotationZ = _roll.transform.eulerAngles.z;
+                _roll.transform.eulerAngles = new Vector3(0, 0, _rotationZ);
+            }
+            else
+            {
+                RollObject _roll = GetComponentInChildren<RollObject>();
+                float _rotationZ = _roll.transform.eulerAngles.z;
+                _roll.transform.eulerAngles = new Vector3(0, 180f, _rotationZ);
+            }
+        }
     }
 }

@@ -53,6 +53,7 @@ public class RollOffset : MonoBehaviour
         CalDeltaDistant();
         BaseSlotMovement();
         HorizontalMovement();
+        Flip();
     }
     private void FixedUpdate()
     {
@@ -61,7 +62,6 @@ public class RollOffset : MonoBehaviour
     }
     void CalDeltaDistant()
     {
-
         currentAnchorPoint = anchorPoint.transform.position;
         deltaAnchorDistnace = currentAnchorPoint - pastAnchorPoint;
         pastAnchorPoint = currentAnchorPoint;
@@ -73,12 +73,10 @@ public class RollOffset : MonoBehaviour
             pastSlotPoint[i] = currentSlotPoint[i];
         }
     }
-
     void BaseSlotMovement()
     {
         _slots[0].transform.position = anchorPoint.transform.position + new Vector3(0f, .5f);
     }
-
     /// <summary>
     /// 팬이 이동하고 아래쪽의 슬롯이 threshold 값보다 앞서 나가면 그제서야 아래쪽 슬롯과 같은 거리만큼 이동한다
     /// offset은 아랫단과의 x축 거리 차이
@@ -99,7 +97,6 @@ public class RollOffset : MonoBehaviour
             }
         }
     }
-
     /// <summary>
     /// _slot[0]은 공중에 뜨지 않는다. 나머지는 그라운드 되어있지 않으면 아래로 떨어지고 그라운드 되면 offset만큼 거리를 벌린다
     /// </summary>
@@ -125,6 +122,13 @@ public class RollOffset : MonoBehaviour
                 _slots[i].transform.Translate(new Vector3(0, -gravityScale * _gravity * Time.deltaTime, 0) * Time.deltaTime);
                 _slots[i].transform.position = new Vector3(_position.x, _slots[i].transform.position.y);
             }
+        }
+    }
+    void Flip()
+    {
+        foreach (var _slot in _slots)
+        {
+            _slot.FlipSprite();
         }
     }
 }
