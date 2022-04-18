@@ -19,7 +19,7 @@ public class GoblinDrill : MonoBehaviour
     {
         _drillPoint = drillPoint.position;
 
-        for (int i = (int)-drillSize.x; i <= drillSize.x / 2; i++)
+        for (int i = (int)-drillSize.x; i <= drillSize.x; i++)
         {
             for (int j = (int)-drillSize.y; j <= (int)drillSize.y; j++)
             {

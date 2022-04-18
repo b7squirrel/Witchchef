@@ -6,12 +6,12 @@ public class PanMove : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             PanManager.instance.FlipRoll();
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             PanManager.instance.SwitchRolls();
         }

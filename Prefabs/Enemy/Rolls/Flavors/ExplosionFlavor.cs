@@ -132,7 +132,11 @@ public class ExplosionFlavor : MonoBehaviour
             }
         }
     }
-    
+    private void GenerateDebris(Vector3 _DebrisPoint)
+    {
+        Instantiate(debrisParticleEffect, _DebrisPoint, Quaternion.identity);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(1, 0, 0, dotAlpha);
