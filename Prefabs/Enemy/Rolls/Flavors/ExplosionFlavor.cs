@@ -41,7 +41,7 @@ public class ExplosionFlavor : MonoBehaviour
     public float dotAlpha = .5f;
 
 
-    public int numberOfRolls;
+    public int numberOfRolls = 1;
 
     private Vector2[] explosionSize = new Vector2[3];
     private bool temp;

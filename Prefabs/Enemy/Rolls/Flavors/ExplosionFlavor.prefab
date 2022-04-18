@@ -89,4 +89,4 @@ MonoBehaviour:
   timeToDelay: 0.1
   debugDot: {fileID: 245781571268478776, guid: 8ba0080dd4f69154e895caf9efdb1498, type: 3}
   dotAlpha: 0
-  numberOfRolls: 0
+  numberOfRolls: 2

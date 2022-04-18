@@ -24,21 +24,16 @@ public class EnemyRolling : MonoBehaviour
     public float verticalSpeed;
     public float gravity;
 
-    [Header("When Captured")]
-    Transform _captureBoxPlayer;
-    public float captureSpeed; // 캡쳐된 후 player capture box까지 다가가는데 걸리는 시간
-    // 캡쳐된 후 팬위에 올라와서 pan manager에서 acquireRoll이 실행된 상황
-    // Player Capture Box에서 충돌체크 후 전달
-
     [Header("Hit Effects")]
     public GameObject hitEffect;
     public Transform hitEffectPoint;
 
+    // 캡쳐되는 순간 pan manager에서 acquireRoll이 실행해서 빈 슬롯을 검색하고 add시킴
     void Start()
     {
-        currentState = rollingState.captured;
-        this.tag = "RollCaptured";
-        _captureBoxPlayer = FindObjectOfType<PlayerCaptureBox>().transform;
+        currentState = rollingState.onPan;
+        this.tag = "RollsOnPan";
+        PanManager.instance.AcquireRoll(transform);
     }
 
     void Update()
@@ -53,31 +48,21 @@ public class EnemyRolling : MonoBehaviour
             case rollingState.shooting:
                 break;
 
-            case rollingState.captured:
-
-                transform.position = Vector2.Lerp(transform.position, _captureBoxPlayer.position, captureSpeed * Time.deltaTime);
-                if (Vector2.Distance(transform.position, _captureBoxPlayer.position) < 1f)
-                {
-                    currentState = rollingState.onPan;
-                    PanManager.instance.AcquireRoll(transform);
-                }
-                break;
-
             case rollingState.onPan:
-                this.tag = "RollsOnPan";
                 // 아무것도 하지 않음. PanSlot에서 AddRoll로 슬롯에 페어런트를 해버리기 때문
                 break;
         }
     }
     // ground나 enemy에 충돌하면 자신을 destroy시킨다
-    // 만약 flavor가 있다면 폭발을 생성한다
+    // 만약 flavor가 있다면 폭발을 생성한다, 폭발을 생성할 때 크기를 결정하는 numberOfRoll을 Explosion Flavor에 넘겨준다
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
         {
             if (m_flavorSO != null)
             {
-                Instantiate(m_flavorSO.actionPrefab, transform.position, transform.rotation);
+                var _explosion = Instantiate(m_flavorSO.actionPrefab, transform.position, transform.rotation);
+                //_explosion.GetComponent<ExplosionFlavor>().numberOfRolls = 1;
             }
             Debug.Log(collision.CompareTag("Ground"));
             DestroyPrefab();
