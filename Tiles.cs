@@ -11,12 +11,10 @@ public class Tiles : MonoBehaviour
     {
         tileMap = GetComponent<Tilemap>();
     }
-    
     public void RemoveTile(Vector2 _point)
     {
         Vector3Int _cellPosition = tileMap.WorldToCell(_point);
+        
         tileMap.SetTile(_cellPosition, null);
     }
-
-    
 }

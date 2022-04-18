@@ -101,7 +101,7 @@ public class ExplosionFlavor : MonoBehaviour
             for (int j = (int)-_size.y / 2; j <= (int)_size.y / 2; j++)
             {
                 Vector3 _cellPosition =
-                    new Vector3(_center.x + i, _center.y + j, 0);
+                    new Vector3(_center.x + i, _center.y + j);
 
                 //Instantiate(debugDot, _cellPosition, Quaternion.identity);
 
@@ -109,7 +109,6 @@ public class ExplosionFlavor : MonoBehaviour
                 if (_hitground != null)
                 {
                     _hitground.GetComponent<Tiles>().RemoveTile(_cellPosition);
-                    GenerateDebris(transform.position, _cellPosition);
                 }
             }
         }
@@ -133,11 +132,7 @@ public class ExplosionFlavor : MonoBehaviour
             }
         }
     }
-
-    private void GenerateDebris(Vector2 _expPoint, Vector2 _DebrisPoint)
-    {
-        Instantiate(debrisParticleEffect, _DebrisPoint, Quaternion.identity);
-    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(1, 0, 0, dotAlpha);
