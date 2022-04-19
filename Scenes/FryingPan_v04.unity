@@ -1015,7 +1015,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1162,7 +1162,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1384,7 +1384,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   attackRange: 1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
   rollLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -11021,7 +11021,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11103,7 +11103,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11185,7 +11185,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11454,7 +11454,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12311,7 +12311,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100854,6 +100854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 0}
+  debrisParticleEffect: {fileID: 5738631094860149647, guid: c3bb8c08a19e20e4d9b08d1b0bd94054, type: 3}
 --- !u!1001 &1639406131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100983,7 +100984,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101618,7 +101619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1973596689
 Transform:
   m_ObjectHideFlags: 0
@@ -101716,7 +101717,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 3eac90c5cac9fef49bb621cf5b13905b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.47939658, b: 0.47939658, a: 1}
+  m_Color: {r: 0.3018868, g: 0.20363119, b: 0.20363119, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102379,7 +102380,6 @@ GameObject:
   - component: {fileID: 2809493762570032328}
   - component: {fileID: 2809493762570032322}
   - component: {fileID: 2809493762570032326}
-  - component: {fileID: 2809493762570032323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -102408,18 +102408,6 @@ MonoBehaviour:
   groundCheck: {fileID: 1369391127}
   jumpForce: 21
   jumpRememberTime: 0.1
---- !u!114 &2809493762570032323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809493762570032321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 226146fb4b915e74590c57f54757d625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2809493762570032325
 Transform:
   m_ObjectHideFlags: 0

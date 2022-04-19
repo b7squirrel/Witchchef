@@ -65,6 +65,19 @@ public class PlayerPanAttack : MonoBehaviour
                 panAnim.Play("Pan_HitRoll");
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            PanManager.instance.SwitchRolls();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (PanManager.instance.CountRollNumber() == 0)
+                return;
+            PanManager.instance.ClearRoll();
+            EffectsClearRoll();
+        }
     }
 
     // enemy는 overlapBox로 캡쳐하고 projectile은 playercaptureBox에서 ontriggerenter2d로 감지해서 캡쳐함
@@ -91,6 +104,7 @@ public class PlayerPanAttack : MonoBehaviour
                 }
             }
         }
+        PanManager.instance.FlipRoll();  // 캡쳐될 적이 없을 때만 플립이 되도록
     }
     void Panning()
     {
@@ -114,5 +128,13 @@ public class PlayerPanAttack : MonoBehaviour
             //    panAnim.Play("Pan_Pan");
             //}
         }
+    }
+
+    void EffectsClearRoll()
+    {
+        AudioManager.instance.Play("fire_explosion_01");
+        AudioManager.instance.Play("pan_hit_03");
+        GameManager.instance.StartCameraShake(8, .8f);
+        GameManager.instance.TimeStop(.1f);
     }
 }

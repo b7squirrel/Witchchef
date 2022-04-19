@@ -138,15 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drillPoint: {fileID: 2148230294044539043}
-  drillSize: {x: 3, y: 0.5}
+  drillSize: {x: 1, y: 0.01}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16384
   debrisParticleEffect: {fileID: 5738631094860149647, guid: c3bb8c08a19e20e4d9b08d1b0bd94054, type: 3}
   debugDot: {fileID: 245781571268478776, guid: 8ba0080dd4f69154e895caf9efdb1498, type: 3}
+  debuggingOn: 0
 --- !u!1 &7438139917960112310
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8268678741030747230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.03, z: 0}
+  m_LocalPosition: {x: 1.65, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5176526540431011007}

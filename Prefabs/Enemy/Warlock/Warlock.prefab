@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537898492130272664}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Die Effect Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 7444050165371110267}
   - component: {fileID: 7444050165371110261}
   - component: {fileID: 7444050165371110260}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: Hurt Boxes
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -55,7 +55,7 @@ public class PanSlot : MonoBehaviour
 
     public void FlipRoll()
     {
-        GetRoll().localEulerAngles += new Vector3(0, 0, 45f);
+        GetRoll().localEulerAngles += new Vector3(0, 0, 90f);
     }
 
     public void FlipSprite()

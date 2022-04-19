@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8192047950546718690}
   - component: {fileID: 8192047950546718689}
   - component: {fileID: 8192047950546718688}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: HurtBox
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7101027508509021717}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Die Effect Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

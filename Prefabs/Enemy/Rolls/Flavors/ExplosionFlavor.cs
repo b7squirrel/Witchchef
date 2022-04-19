@@ -132,10 +132,6 @@ public class ExplosionFlavor : MonoBehaviour
             }
         }
     }
-    private void GenerateDebris(Vector3 _DebrisPoint)
-    {
-        Instantiate(debrisParticleEffect, _DebrisPoint, Quaternion.identity);
-    }
 
     private void OnDrawGizmos()
     {
