@@ -10,6 +10,10 @@ public class GoblinDrill : MonoBehaviour
     public Vector2 drillSize;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
+    public Transform rayOrigin;
+    Vector2 _rayOrigin;
+    public float rayLength;
+    Vector2 _rayDirection;
 
     public GameObject debrisParticleEffect;
 
@@ -24,9 +28,11 @@ public class GoblinDrill : MonoBehaviour
 
     private void Update()
     {
-        UpdateDrillSize();
         _drillPoint = drillPoint.position;
-        SearchingTiles();
+        _rayOrigin = rayOrigin.position;
+        //UpdateDrillSize();
+        DetectingGround();
+        //SearchingTiles();
         //SearchingTilesTemp();
     }
 
@@ -75,6 +81,22 @@ public class GoblinDrill : MonoBehaviour
         }
 
         DebugDestructionPoint(_cellPosition);
+    }
+
+    void DetectingGround()
+    {
+        Collider2D _hitground = Physics2D.OverlapCircle(_drillPoint, .1f, groundLayer);
+        if (_hitground != null)
+        {
+            _hitground.GetComponent<Tiles>().RemoveTile(_drillPoint);
+            Instantiate(debugDot, _drillPoint, Quaternion.identity);
+        }
+        _hitground = Physics2D.OverlapCircle(_rayOrigin, .1f, groundLayer);
+        if (_hitground != null)
+        {
+            _hitground.GetComponent<Tiles>().RemoveTile(_rayOrigin);
+            Instantiate(debugDot, _rayOrigin, Quaternion.identity);
+        }
     }
 
     void UpdateDrillSize()

@@ -64,7 +64,6 @@ public class EnemyRolling : MonoBehaviour
                 var _explosion = Instantiate(m_flavorSO.actionPrefab, transform.position, transform.rotation);
                 //_explosion.GetComponent<ExplosionFlavor>().numberOfRolls = 1;
             }
-            Debug.Log(collision.CompareTag("Ground"));
             DestroyPrefab();
         }
     }

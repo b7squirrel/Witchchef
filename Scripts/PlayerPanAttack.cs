@@ -66,11 +66,6 @@ public class PlayerPanAttack : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            PanManager.instance.SwitchRolls();
-        }
-
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (PanManager.instance.CountRollNumber() == 0)
@@ -104,7 +99,8 @@ public class PlayerPanAttack : MonoBehaviour
                 }
             }
         }
-        PanManager.instance.FlipRoll();  // 캡쳐될 적이 없을 때만 플립이 되도록
+        PanManager.instance.FlipRoll();
+        //PanManager.instance.SwitchRolls();
     }
     void Panning()
     {
