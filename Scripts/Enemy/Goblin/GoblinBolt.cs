@@ -16,7 +16,7 @@ public class GoblinBolt : MonoBehaviour
     
     Rigidbody2D _theRB;
     Animator _anim;
-    TakeDamage _takeDamage;
+    EnemyHealth _takeDamage;
     bool _isGrounded;
     [SerializeField]
     int _direction;
@@ -27,7 +27,7 @@ public class GoblinBolt : MonoBehaviour
     {
         _theRB = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        _takeDamage = GetComponentInChildren<TakeDamage>();
+        _takeDamage = GetComponentInChildren<EnemyHealth>();
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class GoblinBolt : MonoBehaviour
 
         Direction();
 
-        if (_takeDamage.knockBack)
+        if (_takeDamage.IsKnockBacked())
         {
             if (knockBackCounter < knockBackTime)
             {
@@ -46,7 +46,7 @@ public class GoblinBolt : MonoBehaviour
             }
             else
             {
-                _takeDamage.knockBack = false;
+                _takeDamage.SetKnockBackState(false);
                 StartCoroutine(Stun());
             }
         }

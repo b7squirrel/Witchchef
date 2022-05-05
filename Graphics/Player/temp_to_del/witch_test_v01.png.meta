@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 2d9a3c7a89db9c443848070bbec65580
+guid: b6417ed2f94fabb43b2f14354f959516
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8981547568019524484
-    second: Goul_Fighter_Attack_Antic_0
+      213: -9048985819658239406
+    second: witch_test_v01_0
   - first:
-      213: 8019871736526150489
-    second: Goul_Fighter_Attack_Antic_1
+      213: -3861359905661046152
+    second: witch_test_v01_1
   - first:
-      213: -2854142320698548780
-    second: Goul_Fighter_Attack_Antic_2
+      213: -6907972199591622894
+    second: witch_test_v01_2
   - first:
-      213: -2726606423715811338
-    second: Goul_Fighter_Attack_Antic_3
+      213: -1961148838358884049
+    second: witch_test_v01_3
   - first:
-      213: 2864603981378742792
-    second: Goul_Fighter_Attack_Antic_4
+      213: 4014337126914623562
+    second: witch_test_v01_4
+  - first:
+      213: 3453266480023583158
+    second: witch_test_v01_5
+  - first:
+      213: -3126696681623137891
+    second: witch_test_v01_6
+  - first:
+      213: -4951026034088862754
+    second: witch_test_v01_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,106 +115,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goul_Fighter_Attack_Antic_0
+      name: witch_test_v01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 150
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 96
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bc3154dedd4ac70800000000000000
-      internalID: 8981547568019524484
+      spriteID: 25249b1375b8b6280800000000000000
+      internalID: -9048985819658239406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Attack_Antic_1
+      name: witch_test_v01_1
       rect:
         serializedVersion: 2
-        x: 150
-        y: 2
-        width: 150
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 72
+        y: 96
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95b16df6ade4c4f60800000000000000
-      internalID: 8019871736526150489
+      spriteID: 8723329cf91b96ac0800000000000000
+      internalID: -3861359905661046152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Attack_Antic_2
+      name: witch_test_v01_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 2
-        width: 150
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 96
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd9a546eac0468d0800000000000000
-      internalID: -2854142320698548780
+      spriteID: 217411d62e3f120a0800000000000000
+      internalID: -6907972199591622894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Attack_Antic_3
+      name: witch_test_v01_3
       rect:
         serializedVersion: 2
-        x: 450
-        y: 2
-        width: 150
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 48
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ffee1067e5292ad0800000000000000
-      internalID: -2726606423715811338
+      spriteID: f21e2f9a58998c4e0800000000000000
+      internalID: -1961148838358884049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_Attack_Antic_4
+      name: witch_test_v01_4
       rect:
         serializedVersion: 2
-        x: 600
-        y: 2
-        width: 150
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 72
+        y: 48
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80aef3cc42e11c720800000000000000
-      internalID: 2864603981378742792
+      spriteID: a48886a195ac5b730800000000000000
+      internalID: 4014337126914623562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: witch_test_v01_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9b19041977cef20800000000000000
+      internalID: 3453266480023583158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: witch_test_v01_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d91d57b1fedbb94d0800000000000000
+      internalID: -3126696681623137891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: witch_test_v01_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 72
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb1c6cbd0c6a4bb0800000000000000
+      internalID: -4951026034088862754
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PanSlot : MonoBehaviour
 {
     public bool isEmpty = true;
+    float _height;
+    int _capacity;
 
     public bool IsEmpty()
     {
@@ -21,6 +23,11 @@ public class PanSlot : MonoBehaviour
     public void SetToOccupied()
     {
         isEmpty = false;
+    }
+
+    void UpdateSlot(RollSO _rollSO)
+    {
+        _height = _rollSO.height;
     }
 
     public void AddRoll(Transform _prefab)

@@ -1,25 +1,43 @@
 fileFormatVersion: 2
-guid: 6f21f1ca5c202f64c86dbe6755a6b0c9
+guid: 74d6a08e257c75e4b807042ebbe95eaf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8587351260692541912
-    second: Goul_Fighter_parried_0
+      213: -8763852759656306341
+    second: Goul_Fighter_Stunned_0
   - first:
-      213: 6012318424752567083
-    second: Goul_Fighter_parried_1
+      213: 7336266420248052731
+    second: Goul_Fighter_Stunned_1
   - first:
-      213: -423378654753779108
-    second: Goul_Fighter_parried_2
+      213: 6704104167106612896
+    second: Goul_Fighter_Stunned_2
   - first:
-      213: 3590229068744553101
-    second: Goul_Fighter_parried_3
+      213: 8610534289916738522
+    second: Goul_Fighter_Stunned_3
   - first:
-      213: -6521873012485794490
-    second: Goul_Fighter_parried_4
+      213: -9171488879356314080
+    second: Goul_Fighter_Stunned_4
   - first:
-      213: -3306990803034858165
-    second: Goul_Fighter_parried_5
+      213: -7813669077795167816
+    second: Goul_Fighter_Stunned_5
+  - first:
+      213: 19094217039118599
+    second: Goul_Fighter_Stunned_6
+  - first:
+      213: -181392541296894309
+    second: Goul_Fighter_Stunned_7
+  - first:
+      213: 3743648289711220865
+    second: Goul_Fighter_Stunned_8
+  - first:
+      213: 6586342499443082601
+    second: Goul_Fighter_Stunned_9
+  - first:
+      213: -1139025882147929933
+    second: Goul_Fighter_Stunned_10
+  - first:
+      213: 7836494826741991652
+    second: Goul_Fighter_Stunned_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +127,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goul_Fighter_parried_0
+      name: Goul_Fighter_Stunned_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59ebd4195a806680800000000000000
+      internalID: -8763852759656306341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 194
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf30384a077afc560800000000000000
+      internalID: 7336266420248052731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 194
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae0b995833c90d50800000000000000
+      internalID: 6704104167106612896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 194
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adbbecce053ce7770800000000000000
+      internalID: 8610534289916738522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_4
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82e0be0b68993d880800000000000000
-      internalID: -8587351260692541912
+      spriteID: 02e7584f47358b080800000000000000
+      internalID: -9171488879356314080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_parried_1
+      name: Goul_Fighter_Stunned_5
       rect:
         serializedVersion: 2
         x: 150
@@ -144,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b23b9efa0cb007350800000000000000
-      internalID: 6012318424752567083
+      spriteID: 8b1a0915f55409390800000000000000
+      internalID: -7813669077795167816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_parried_2
+      name: Goul_Fighter_Stunned_6
       rect:
         serializedVersion: 2
         x: 300
@@ -165,14 +267,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c521bed4b5bdf1af0800000000000000
-      internalID: -423378654753779108
+      spriteID: 70181e7d616d34000800000000000000
+      internalID: 19094217039118599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_parried_3
+      name: Goul_Fighter_Stunned_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 97
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ed71bd1709b7df0800000000000000
+      internalID: -181392541296894309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_8
       rect:
         serializedVersion: 2
         x: 0
@@ -186,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82fcc0f05e03d130800000000000000
-      internalID: 3590229068744553101
+      spriteID: 1886c38e84c14f330800000000000000
+      internalID: 3743648289711220865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_parried_4
+      name: Goul_Fighter_Stunned_9
       rect:
         serializedVersion: 2
         x: 150
@@ -207,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 645d39cac07ad75a0800000000000000
-      internalID: -6521873012485794490
+      spriteID: 9650d587b93676b50800000000000000
+      internalID: 6586342499443082601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goul_Fighter_parried_5
+      name: Goul_Fighter_Stunned_10
       rect:
         serializedVersion: 2
         x: 300
@@ -228,8 +351,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4d9f95c2653b12d0800000000000000
-      internalID: -3306990803034858165
+      spriteID: 3b0c898befd5130f0800000000000000
+      internalID: -1139025882147929933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goul_Fighter_Stunned_11
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e884208682d0cc60800000000000000
+      internalID: 7836494826741991652
       vertices: []
       indices: 
       edges: []

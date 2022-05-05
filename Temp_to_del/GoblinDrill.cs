@@ -77,7 +77,7 @@ public class GoblinDrill : MonoBehaviour
         Collider2D _hitenemy = Physics2D.OverlapCircle(_cellPosition, .5f, enemyLayer);
         if (_hitenemy != null)
         {
-            _hitenemy.GetComponent<TakeDamage>().Die();
+            _hitenemy.GetComponent<EnemyHealth>().Die();
         }
 
         DebugDestructionPoint(_cellPosition);

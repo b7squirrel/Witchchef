@@ -46,7 +46,7 @@ public class Warlock : MonoBehaviour
     }
     void Update()
     {
-        if(GetComponentInChildren<TakeDamage>().isStunned)  // 스턴 상태라면 계속 이 반복문에 머물도록
+        if(GetComponentInChildren<EnemyHealth>().IsStunned())  // 스턴 상태라면 계속 이 반복문에 머물도록
         {
             anim.Play("Warlock_Stunned");
         }
@@ -76,7 +76,7 @@ public class Warlock : MonoBehaviour
     void ResetStunnedState()
     {
         //animation event
-        GetComponentInChildren<TakeDamage>().isStunned = false;
+        GetComponentInChildren<EnemyHealth>().SetStunState(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

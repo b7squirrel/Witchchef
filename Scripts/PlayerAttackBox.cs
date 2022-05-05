@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerAttackBox : MonoBehaviour
 {
-    private BoxCollider2D boxCol;
-    private Color parryColor;
-    private bool isParrying;
-
-    private PlayerAttack playerAttack;
-
+    BoxCollider2D boxCol;
+    Color parryColor;
+    bool isParrying;
+    PlayerAttack playerAttack;
+    int _attackPower;
 
     private void Awake()
     {
@@ -17,6 +16,7 @@ public class PlayerAttackBox : MonoBehaviour
         parryColor = new Color(1, 0, 1, 0.5f);
 
         playerAttack = GetComponentInParent<PlayerAttack>();
+        SetAttackPower(1);
     }
 
     private void Update()
@@ -47,6 +47,10 @@ public class PlayerAttackBox : MonoBehaviour
             return;
         }
     }
+    public int GetAttackPower()
+    {
+        return _attackPower;
+    }
 
     private void OnDrawGizmos()
     {
@@ -54,6 +58,11 @@ public class PlayerAttackBox : MonoBehaviour
             return;
         Gizmos.color = parryColor;
         Gizmos.DrawCube(boxCol.bounds.center, boxCol.bounds.size);
+    }
+
+    public void SetAttackPower(int powerValue)
+    {
+        _attackPower = powerValue;
     }
 
 }

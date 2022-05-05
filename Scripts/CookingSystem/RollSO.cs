@@ -9,4 +9,5 @@ public class RollSO : ScriptableObject
     public Sprite rollSprite_UI;
     public GameObject[] rollPrefab;
     public AnimatorOverrideController[] roll_OverrideController;
+    public float height;
 }

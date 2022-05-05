@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class GoulFighter : MonoBehaviour
 {
-    private enum enemyState { idle, follow, attack, stunned };
+    private enum enemyState { idle, follow, attack, stunned, parried };
     [SerializeField] private enemyState currentState;
 
     private Animator anim;
     private Rigidbody2D theRB;
 
     [Header("Detecting")]
-    public float distance; // raycast 거리 설정
     public Transform castPoint;
     public LayerMask action;
+    [SerializeField] BoxCollider2D detectingArea;
+    Vector2 _center, _size;
+    [SerializeField] float _debugAlpha;
 
     private bool canSeePlayer;
 
@@ -29,14 +31,12 @@ public class GoulFighter : MonoBehaviour
     private bool isChangingDirection;
 
     [Header("Stunned")]
-    private TakeDamage takeDamage;
-    public bool isParried;
+    EnemyHealth _enemyHealth;
 
     [Header("Attack")]
-    public float attackDistnace;
+    public float attackDistnace;   // raycast 거리 설정
     public float attackCoolTime;
     private float attackCounter;
-    public float attackRange;
 
     [Header("HitBox")]
     public GameObject attackBox;
@@ -45,7 +45,7 @@ public class GoulFighter : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         theRB = GetComponent<Rigidbody2D>();
-        takeDamage = GetComponentInChildren<TakeDamage>();
+        _enemyHealth = GetComponentInChildren<EnemyHealth>();
         currentState = enemyState.follow;
         isDetecting = false;
         isFacingLeft = true;
@@ -55,7 +55,9 @@ public class GoulFighter : MonoBehaviour
 
     private void Update()
     {
-        IsStunned();
+        SetStunnedState();
+        SetParriedState();
+        DetectingArea();
 
         switch (currentState)
         {
@@ -83,7 +85,7 @@ public class GoulFighter : MonoBehaviour
                     {
                         // 공격 모션 중이라면 그 모션이 끝이 날 때까지 기다림
                         // Attack 모션은 끝이나면 walk 모션으로 들어감.
-                        // walk모션이 재생되고 있지만 Follow가 아니므로 제자리에서 걷는데 플레이어에게 겹칠만큼 다가가지 않기 때문에 좋다
+                        // walk모션이 재생되고 있지만 Follow가 아니라 attack모드이므로 제자리에서 걷는데 플레이어에게 겹칠만큼 다가가지 않기 때문에 좋다
                         currentState = enemyState.follow;
                     }
                     else
@@ -129,11 +131,19 @@ public class GoulFighter : MonoBehaviour
 
             case enemyState.stunned:
 
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Goul_Fighter_Stunned"))
+                if (_enemyHealth.IsStunned() == false)
                 {
                     currentState = enemyState.follow;
                 }
 
+                break;
+
+            case enemyState.parried:
+
+                if (_enemyHealth.IsParried() == false)
+                {
+                    currentState = enemyState.follow;
+                }
                 break;
         }
     }
@@ -146,36 +156,30 @@ public class GoulFighter : MonoBehaviour
         }
     }
 
-    void IsStunned()
+    void SetStunnedState()
     {
-        if (takeDamage.isStunned)
+        if (_enemyHealth.IsStunned())
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Goul_Fighter_Stunned"))
             {
                 anim.Play("Goul_Fighter_Stunned");
             }
-            currentState = enemyState.stunned;
-        }
-
-        if (isParried)
-        {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Goul_Fighter_Stunned"))
-            {
-                anim.Play("Goul_Fighter_Stunned");
-            }
+            AttackBoxOff();
             currentState = enemyState.stunned;
         }
     }
 
-    //animation events
-    void ResetStunned()
+    void SetParriedState()
     {
-        // playerParryBox에 의해 untagged로 바뀌었던 태크를 다시 AttackBoxEnemy로 바꿈
-        takeDamage.isStunned = false;
-        takeDamage.isRolling = false;
-        isParried = false;
-        attackBox.gameObject.tag = "AttackBoxEnemy";
-
+        if (_enemyHealth.IsParried())
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Goul_Fighter_Parried"))
+            {
+                anim.Play("Goul_Fighter_Parried");
+            }
+            AttackBoxOff();
+            currentState = enemyState.parried;
+        }
     }
 
     bool CanAttackPlayer()
@@ -210,6 +214,7 @@ public class GoulFighter : MonoBehaviour
             Debug.DrawLine(castPoint.position, _endPosition, Color.yellow); // 아무것도 감지하지 못할 때는 blue
         }
 
+        anim.SetBool("canAttack", _canAttackPlayer); // 플레이어가 공격 가능한 범위에 있다면 attack 모션으로 가도록
         return _canAttackPlayer;
     }
 
@@ -289,9 +294,13 @@ public class GoulFighter : MonoBehaviour
         isSearching = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void DetectingArea()
     {
-        if (collision.CompareTag("HurtBoxPlayer"))
+        _center = detectingArea.GetComponent<BoxCollider2D>().bounds.center;
+        _size = detectingArea.GetComponent<BoxCollider2D>().bounds.size;
+
+        bool _isDetectingPlayer = Physics2D.OverlapBox(_center, _size, 0f, action);
+        if(_isDetectingPlayer)
         {
             canSeePlayer = true;
         }
@@ -300,15 +309,15 @@ public class GoulFighter : MonoBehaviour
             canSeePlayer = false;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+
+    private void OnDrawGizmos()
     {
-        if (collision.CompareTag("HurtBoxPlayer"))
+        if(detectingArea.GetComponent<BoxCollider2D>())
         {
-            canSeePlayer = true;
-        }
-        else
-        {
-            canSeePlayer = false;
+            _center = detectingArea.GetComponent<BoxCollider2D>().bounds.center;
+            _size = detectingArea.GetComponent<BoxCollider2D>().bounds.size;
+            Gizmos.color = new Color(0, 1, 1, _debugAlpha);
+            Gizmos.DrawCube(_center, _size);
         }
     }
 }

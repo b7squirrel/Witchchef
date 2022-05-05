@@ -129,17 +129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRollType: 1
-  currentHP: 0
   maxHP: 1
-  isStunned: 0
-  knockBack: 0
-  isRolling: 0
+  stunnedTime: 1
+  parriedTime: 0.8
   dieEffect: {fileID: 6987084327100221053, guid: 036f43595c5bb0743a94c6b3227bc1f5, type: 3}
   dieBones: {fileID: 1257496888122881004, guid: 72bfe5f32aebd3440bbea00645628e46, type: 3}
   dieEffectPoint: {fileID: 247175487961203935}
-  isCaptured: 0
-  whiteMat: {fileID: 2100000, guid: 8ec93e96670acbe42ad1c1e3ea6e9768, type: 2}
   mSprite: {fileID: 6493158245600938859}
+  whiteMat: {fileID: 2100000, guid: 8ec93e96670acbe42ad1c1e3ea6e9768, type: 2}
   blinkingDuration: 0.2
 --- !u!1 &6493158245600938859
 GameObject:
@@ -350,6 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2883bb9b45af43bc35dc30f4afdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyHealth: {fileID: 6493158245389905574}
+  parriedBufferTime: 0.15
 --- !u!1 &6493158246380748803
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,18 +493,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  distance: 7
   castPoint: {fileID: 6493158246652258253}
   action:
     serializedVersion: 2
     m_Bits: 8
+  detectingArea: {fileID: 6493158245768596053}
+  _debugAlpha: 0
   isFacingLeft: 0
   moveSpeed: 3
   timeToStopFollowing: 5
-  isParried: 0
-  attackDistnace: 3
-  attackCoolTime: 3
-  attackRange: 2
+  attackDistnace: 5
+  attackCoolTime: 0.5
   attackBox: {fileID: 6493158246076871488}
 --- !u!1 &6493158246652257842
 GameObject:
@@ -531,7 +529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6493158246652257842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03, y: -1.89, z: 0}
+  m_LocalPosition: {x: -1.03, y: -2.453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6493158246380748831}

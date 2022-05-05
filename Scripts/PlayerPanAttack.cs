@@ -85,16 +85,17 @@ public class PlayerPanAttack : MonoBehaviour
         {
             foreach (Collider2D enemy in hits)
             {
-                if(enemy.gameObject.CompareTag("Enemy"))
+                if (PanManager.instance.IsAvailableToCapture())  // Roll이 슬롯 갯수보다 작으면 캡쳐실행
                 {
-                    if (PanManager.instance.IsAvailableToCapture())  // Roll이 슬롯 갯수보다 작으면 캡쳐실행
+                    EnemyHealth _enemyHealth = enemy.GetComponent<EnemyHealth>();
+                    
+                    if (_enemyHealth != null)
                     {
-                        TakeDamage _takeDamage = enemy.GetComponent<TakeDamage>();
-                        EnemyHealth _enemyHealth = enemy.GetComponent<EnemyHealth>();
-                        if (_takeDamage != null)
-                        {
-                            _takeDamage.GetRolled();
-                        }
+                        _enemyHealth.GetRolled();
+                        //if (_enemyHealth.IsStunned())  // 스턴 상태일 때만 캡쳐가능
+                        //{
+                        //    _enemyHealth.GetRolled();
+                        //}
                     }
                 }
             }
